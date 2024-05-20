@@ -53,36 +53,32 @@ class DiaryViewController: UIViewController {
     @IBAction func btnClicked(_ sender: UIButton) {
         switch sender.tag {
         case 0:
-            count[sender.tag] += 1
-            labelCollection[sender.tag].text = "\(labelList[sender.tag]) \(count[sender.tag])"
+            changeCount(BtnTag: sender.tag)
         case 1:
-            count[sender.tag] += 1
-            labelCollection[sender.tag].text = "\(labelList[sender.tag]) \(count[sender.tag])"
+            changeCount(BtnTag: sender.tag)
         case 2:
-            count[sender.tag] += 1
-            labelCollection[sender.tag].text = "\(labelList[sender.tag]) \(count[sender.tag])"
+            changeCount(BtnTag: sender.tag)
         case 3:
-            count[sender.tag] += 1
-            labelCollection[sender.tag].text = "\(labelList[sender.tag]) \(count[sender.tag])"
+            changeCount(BtnTag: sender.tag)
         case 4:
-            count[sender.tag] += 1
-            labelCollection[sender.tag].text = "\(labelList[sender.tag]) \(count[sender.tag])"
+            changeCount(BtnTag: sender.tag)
         case 5:
-            count[sender.tag] += 1
-            labelCollection[sender.tag].text = "\(labelList[sender.tag]) \(count[sender.tag])"
+            changeCount(BtnTag: sender.tag)
         case 6:
-            count[sender.tag] += 1
-            labelCollection[sender.tag].text = "\(labelList[sender.tag]) \(count[sender.tag])"
+            changeCount(BtnTag: sender.tag)
         case 7:
-            count[sender.tag] += 1
-            labelCollection[sender.tag].text = "\(labelList[sender.tag]) \(count[sender.tag])"
+            changeCount(BtnTag: sender.tag)
         case 8:
-            count[sender.tag] += 1
-            labelCollection[sender.tag].text = "\(labelList[sender.tag]) \(count[sender.tag])"
+            changeCount(BtnTag: sender.tag)
             
         default:
             break
         }
+    }
+    
+    private func changeCount(BtnTag tagNumber: Int) {
+        count[tagNumber] += 1
+        labelCollection[tagNumber].text = "\(labelList[tagNumber]) \(count[tagNumber])"
     }
     
     
