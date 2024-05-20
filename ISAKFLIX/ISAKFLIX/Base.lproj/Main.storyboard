@@ -307,7 +307,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
-                                    <action selector="textFieldEnterTapped:" destination="IKK-rC-6MB" eventType="editingDidEndOnExit" id="G9T-ak-N5b"/>
+                                    <action selector="textFieldEnterTapped:" destination="IKK-rC-6MB" eventType="editingDidEnd" id="6Se-wM-4Fg"/>
                                 </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WZh-jf-N2k">
@@ -316,7 +316,7 @@
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" title="btn1"/>
                                 <connections>
-                                    <action selector="soonOpenBtnTapped:" destination="IKK-rC-6MB" eventType="touchUpInside" id="STK-Tu-ZDm"/>
+                                    <action selector="btnTapped:" destination="IKK-rC-6MB" eventType="touchUpInside" id="ZH8-Bd-2H1"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Bold, bigger font" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pXQ-w5-3f1">
@@ -331,6 +331,9 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" title="btn3"/>
+                                <connections>
+                                    <action selector="btnTapped:" destination="IKK-rC-6MB" eventType="touchUpInside" id="ibm-0V-2e7"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kAO-gx-TxE">
                                 <rect key="frame" x="107" y="172" width="149" height="35"/>
@@ -339,7 +342,7 @@
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" title="btn2"/>
                                 <connections>
-                                    <action selector="mostPopularBtnTapped:" destination="IKK-rC-6MB" eventType="touchUpInside" id="ih2-On-O2t"/>
+                                    <action selector="btnTapped:" destination="IKK-rC-6MB" eventType="touchUpInside" id="EwI-Ug-Jpf"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R9c-y9-kor">

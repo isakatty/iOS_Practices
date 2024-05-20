@@ -57,102 +57,40 @@ class SearchViewController: UIViewController {
         // template vs original
         // 형태만 가져와     원본
         // 왜 template 필요할까? -> 이미지에 색상을 추가해주고 싶을 때, 이미지의 선과 면을 따서 거기에 tint color로 채워줄 때 template img가 쓰이는 것.
-        soonOpenBtn.titleLabel?.font = .systemFont(ofSize: 15)
-        soonOpenBtn.setTitle(
-            "공개 예정",
-            for: .normal
-        )
-        soonOpenBtn.setImage(
-            UIImage(named: "blue"),
-            for: .normal
-        )
-        // 이미지 렌더링 모드 적용 코드로
-        // let image = UIImage(named: "").withRenderingMode(.alwaysOriginal)
-        soonOpenBtn.imageView?.image?.withRenderingMode(.alwaysOriginal)
-        soonOpenBtn.setTitleColor(
-            UIColor.black,
-            for: .normal
-        )
-        soonOpenBtn.layer.cornerRadius = 17
-        soonOpenBtn.layer.backgroundColor = UIColor.white.cgColor
-        
-        mostPopularBtn.titleLabel?.font = .systemFont(ofSize: 14)
-        mostPopularBtn.setTitle(
-            "모두의 인기 콘텐츠",
-            for: .normal
-        )
-        mostPopularBtn.setImage(
-            UIImage(named: "turquoise"),
-            for: .normal
-        )
-        mostPopularBtn.setTitleColor(
-            UIColor.black,
-            for: .normal
-        )
-        mostPopularBtn.layer.cornerRadius = 17
-        mostPopularBtn.layer.backgroundColor = UIColor.white.cgColor
-        
-        topLankedBtn.titleLabel?.font = .systemFont(ofSize: 14)
-        topLankedBtn.setTitle(
-            "TOP 10 시리즈",
-            for: .normal
-        )
-        topLankedBtn.setImage(
-            UIImage(named: "pink"),
-            for: .normal
-        )
-        topLankedBtn.setTitleColor(
-            UIColor.black,
-            for: .normal
-        )
-        topLankedBtn.layer.cornerRadius = 17
-        topLankedBtn.layer.backgroundColor = UIColor.white.cgColor
-        
-        searchResultLabel.text = "이런! 찾으시는 작품이 없습니다."
-        searchResultLabel.textColor = .white
-        searchResultLabel.textAlignment = .center
-        searchResultLabel.font = .systemFont(
-            ofSize: 23,
-            weight: .bold
-        )
-        searchResultDescriptionLabel.text = "다른 영화, 시리즈, 배우, 감독 또는 장르를 검색해보세요."
-        searchResultDescriptionLabel.textColor = .white
-        searchResultDescriptionLabel.textAlignment = .center
-        searchResultDescriptionLabel.font = .systemFont(
-            ofSize: 15,
-            weight: .light
-        )
-    }
-    
-    
-    @IBAction func soonOpenBtnTapped(_ sender: UIButton) {
-        mostPopularBtn.layer.backgroundColor = UIColor.clear.cgColor
-        topLankedBtn.layer.backgroundColor = UIColor.clear.cgColor
-        mostPopularBtn.setTitleColor(
-            UIColor.red,
-            for: .normal
-        )
-        topLankedBtn.setTitleColor(
-            UIColor.red,
-            for: .normal
+        configureBtnUI(
+            btn: soonOpenBtn,
+            btnTitle: "공개 예정",
+            btnImageName: "blue",
+            tagNumber: 0
         )
         
-        searchResultLabel.text = "공개 예정은 뭐가 있을까요 ?"
-        searchResultDescriptionLabel.text = "넷플릭스 오리지널 많이 내주세요. "
-    }
-    
-    @IBAction func mostPopularBtnTapped(_ sender: UIButton) {
-        topLankedBtn.layer.backgroundColor = UIColor.clear.cgColor
-        topLankedBtn.setTitleColor(
-            UIColor.red,
-            for: .normal
+        configureBtnUI(
+            btn: mostPopularBtn,
+            btnTitle: "모두의 인기 콘텐츠",
+            btnImageName: "turquoise",
+            tagNumber: 1
         )
         
+        configureBtnUI(
+            btn: topLankedBtn,
+            btnTitle: "TOP 10 시리즈",
+            btnImageName: "pink",
+            tagNumber: 2
+        )
         
-        searchResultLabel.text = "모두의 인기 콘텐츠는 뭐가 있을까요 ?"
-        searchResultLabel.font = .systemFont(ofSize: 20)
-        searchResultDescriptionLabel.text = "요즘 넷플릭스를 못봐서 뭐가 인기있는지 모르겠어요. \n아쉬워요."
+        configureLabelUI(
+            label: searchResultLabel,
+            labelText: "이런 ! 찾으시는 작품이 없습니다.",
+            fontSize: 23,
+            fontWeight: .bold
+        )
         
+        configureLabelUI(
+            label: searchResultDescriptionLabel,
+            labelText: "다른 영화, 시리즈, 배우, 감독 또는 장르를 검색해보세요.",
+            fontSize: 15,
+            fontWeight: .light
+        )
     }
     
     @IBAction func textFieldEnterTapped(_ sender: UITextField) {
@@ -162,6 +100,90 @@ class SearchViewController: UIViewController {
             searchResultLabel.text = searchText
             searchResultDescriptionLabel.text = "검색 결과 촤라락"
         }
+    }
+    
+    @IBAction func btnTapped(_ sender: UIButton) {
+        switch sender.tag {
+        case 0:
+            mostPopularBtn.layer.backgroundColor = UIColor.clear.cgColor
+            topLankedBtn.layer.backgroundColor = UIColor.clear.cgColor
+            mostPopularBtn.setTitleColor(
+                UIColor.red,
+                for: .normal
+            )
+            topLankedBtn.setTitleColor(
+                UIColor.red,
+                for: .normal
+            )
+            
+            searchResultLabel.text = "공개 예정은 뭐가 있을까요 ?"
+            searchResultDescriptionLabel.text = "넷플릭스 오리지널 많이 내주세요. "
+        case 1:
+            topLankedBtn.layer.backgroundColor = UIColor.clear.cgColor
+            topLankedBtn.setTitleColor(
+                UIColor.red,
+                for: .normal
+            )
+            
+            searchResultLabel.text = "모두의 인기 콘텐츠는 뭐가 있을까요 ?"
+            searchResultLabel.font = .systemFont(ofSize: 20)
+            searchResultDescriptionLabel.text = "요즘 넷플릭스를 못봐서 뭐가 인기있는지 모르겠어요. \n아쉬워요."
+        case 2:
+            soonOpenBtn.setTitleColor(
+                .red,
+                for: .normal
+            )
+            topLankedBtn.setTitleColor(
+                .red,
+                for: .normal
+            )
+            soonOpenBtn.layer.backgroundColor = UIColor.clear.cgColor
+        default:
+            break
+        }
+    }
+    
+    
+    private func configureBtnUI(
+        btn: UIButton,
+        btnTitle: String,
+        btnImageName: String,
+        tagNumber: Int
+    ) {
+        btn.titleLabel?.font = .systemFont(ofSize: 15)
+        
+        let img = UIImage(named: btnImageName)?.withRenderingMode(.alwaysOriginal)
+        
+        btn.setTitle(
+            btnTitle,
+            for: .normal
+        )
+        btn.setImage(
+            img,
+            for: .normal
+        )
+        btn.setTitleColor(
+            .black,
+            for: .normal
+        )
+        btn.layer.cornerRadius = 17
+        btn.layer.backgroundColor = UIColor.white.cgColor
+        btn.tag = tagNumber
+    }
+    
+    private func configureLabelUI(
+        label: UILabel,
+        labelText: String,
+        fontSize: CGFloat,
+        fontWeight: UIFont.Weight
+    ) {
+        label.textColor = UIColor.white
+        label.textAlignment = .center
+        label.text = labelText
+        label.font = .systemFont(
+            ofSize: fontSize,
+            weight: fontWeight
+        )
     }
     
 }

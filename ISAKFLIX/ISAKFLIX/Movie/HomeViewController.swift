@@ -42,16 +42,17 @@ class HomeViewController: UIViewController {
     
     
     func configureUI() {
-        mainImageView.image = UIImage(named: "노량")
-        cornerChange(imgView: mainImageView)
+        cornerChange(imageName: "노량", imgView: mainImageView)
         
-        mainImageDescriptionLabel.text = "응원하고픈 흥미 진진 사극 전투 한국 작품"
-        mainImageDescriptionLabel.textColor = .lightGray
-        mainImageDescriptionLabel.font = .systemFont(
-            ofSize: 13,
-            weight: .semibold
-        )
         mainImageDescriptionLabel.textAlignment = .center
+        plainLabelUI(
+            label: mainImageDescriptionLabel,
+            labelText: "응원하고픈 흥미 진진 사극 전투 한국 작품",
+            textColor: .lightGray,
+            fontSize: 15,
+            fontWeight: .semibold
+        )
+        
         
         playImageView.image = UIImage(named: "play_normal")
         playImageView.contentMode = .scaleAspectFill
@@ -75,21 +76,28 @@ class HomeViewController: UIViewController {
         bookmarkBtn.backgroundColor = .darkGray
         bookmarkBtn.layer.cornerRadius = 5
         
-        boommingContentLabel.text = "지금 뜨는 콘텐츠"
-        boommingContentLabel.textColor = .white
-        boommingContentLabel.font = .systemFont(
-            ofSize: 15,
-            weight: .medium
+        plainLabelUI(
+            label: boommingContentLabel,
+            labelText: "지금 뜨는 콘텐츠",
+            textColor: .white,
+            fontSize: 15,
+            fontWeight: .medium
         )
         
-        firstBoomImageView.image = UIImage(named: "오펜하이머")
-        cornerChange(imgView: firstBoomImageView)
+        cornerChange(
+            imageName: "오펜하이머",
+            imgView: firstBoomImageView
+        )
         
-        secondBoomImageView.image = UIImage(named: "태극기휘날리며")
-        cornerChange(imgView: secondBoomImageView)
+        cornerChange(
+            imageName: "태극기휘날리며",
+            imgView: secondBoomImageView
+        )
         
-        thirdBoomImageView.image = UIImage(named: "어벤져스엔드게임")
-        cornerChange(imgView: thirdBoomImageView)
+        cornerChange(
+            imageName: "어벤져스엔드게임",
+            imgView: thirdBoomImageView
+        )
         
         labelText(
             labelName: newEpUploadLabel,
@@ -144,7 +152,12 @@ class HomeViewController: UIViewController {
         )
     }
     
-    private func cornerChange(imgView: UIImageView) {
+    private func cornerChange(
+        imageName: String,
+        imgView: UIImageView
+    ) {
+        
+        imgView.image = UIImage(named: imageName)?.withRenderingMode(.alwaysOriginal)
         imgView.layer.cornerRadius = 10
         imgView.layer.borderColor = UIColor.yellow.cgColor
         imgView.layer.borderWidth = 5
@@ -165,6 +178,21 @@ class HomeViewController: UIViewController {
         labelName.textAlignment = .center
         labelName.textColor = labelTextColor
         labelName.backgroundColor = labelBgColor
+    }
+    
+    private func plainLabelUI(
+        label: UILabel,
+        labelText: String,
+        textColor: UIColor,
+        fontSize: CGFloat,
+        fontWeight: UIFont.Weight
+    ) {
+        label.text = labelText
+        label.textColor = textColor
+        label.font = .systemFont(
+            ofSize: fontSize,
+            weight: fontWeight
+        )
     }
     
 }
