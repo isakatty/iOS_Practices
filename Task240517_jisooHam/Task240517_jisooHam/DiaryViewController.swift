@@ -8,10 +8,9 @@
 import UIKit
 
 /*
- 1. button + label or imgView + label + clear btn
- 2. 버튼 눌릴 때 -> 증감 필요
- 3. navigation title
- 4. 좌측 상단에 햄버거 버튼?
+ TODO: 0. 함수화
+ TODO: 1. @IBOutlet collection 사용
+ TODO: 2. tag 속성 사용 & 조건문 사용
  */
 
 class DiaryViewController: UIViewController {
@@ -38,16 +37,10 @@ class DiaryViewController: UIViewController {
     @IBOutlet var silmangLabel: UILabel!
     @IBOutlet var sadLabel: UILabel!
     
-    var happy: Int = 0
-    var sarang: Int = 0
-    var love: Int = 0
-    var danghwang: Int = 0
-    var soksang: Int = 0
-    var uul: Int = 0
-    var boring: Int = 0
-    var silmang: Int = 0
-    var sad: Int = 0
+    @IBOutlet var labelCollection: [UILabel]!
     
+    var count: [Int] = [0, 0, 0, 0, 0, 0, 0, 0, 0]
+    var labelList: [String] = ["행복해", "사랑해", "좋아해", "당황해", "속상해", "우울해", "지루해","심심해", "행복해"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -57,185 +50,132 @@ class DiaryViewController: UIViewController {
 
     }
     
-    // MARK: - 버튼마다 변수만 다르고 같은 코드 반복 -> 다른 방법 없을까 ?
-    
-    @IBAction func happyBtnTapped(_ sender: UIButton) {
-        // TODO: - 2단계 : 랜덤으로 숫자 보여주기
-//        happy = Int.random(in: 0...100)
-        // TODO: - 3단계 : 숫자 +1 씩
-//        happy += 1
-//        happyLabel.text = "행복해 \(happy)"
-        
-        if happy == 0 {
-            happy = Int.random(in: 0...100)
-        } else {
-            happy += 1
+    @IBAction func btnClicked(_ sender: UIButton) {
+        switch sender.tag {
+        case 0:
+            count[sender.tag] += 1
+            labelCollection[sender.tag].text = "\(labelList[sender.tag]) \(count[sender.tag])"
+        case 1:
+            count[sender.tag] += 1
+            labelCollection[sender.tag].text = "\(labelList[sender.tag]) \(count[sender.tag])"
+        case 2:
+            count[sender.tag] += 1
+            labelCollection[sender.tag].text = "\(labelList[sender.tag]) \(count[sender.tag])"
+        case 3:
+            count[sender.tag] += 1
+            labelCollection[sender.tag].text = "\(labelList[sender.tag]) \(count[sender.tag])"
+        case 4:
+            count[sender.tag] += 1
+            labelCollection[sender.tag].text = "\(labelList[sender.tag]) \(count[sender.tag])"
+        case 5:
+            count[sender.tag] += 1
+            labelCollection[sender.tag].text = "\(labelList[sender.tag]) \(count[sender.tag])"
+        case 6:
+            count[sender.tag] += 1
+            labelCollection[sender.tag].text = "\(labelList[sender.tag]) \(count[sender.tag])"
+        case 7:
+            count[sender.tag] += 1
+            labelCollection[sender.tag].text = "\(labelList[sender.tag]) \(count[sender.tag])"
+        case 8:
+            count[sender.tag] += 1
+            labelCollection[sender.tag].text = "\(labelList[sender.tag]) \(count[sender.tag])"
+            
+        default:
+            break
         }
-        happyLabel.text = "행복해 \(happy)"    }
-    @IBAction func sarangBtnTapped(_ sender: UIButton) {
-        if sarang == 0 {
-            sarang = Int.random(in: 0...100)
-        } else {
-            sarang += 1
-        }
-        sarangLabel.text = "좋아해 \(sarang)"
-        
     }
-    @IBAction func loveBtnTapped(_ sender: UIButton) {
-        if love == 0 {
-            love = Int.random(in: 1...100)
-        } else {
-            love += 1
-        }
-        loveLabel.text = "사랑해 \(love)"
-        
-    }
-    @IBAction func danghwangBtnTapped(_ sender: UIButton) {
-        if danghwang == 0 {
-            danghwang = Int.random(in: 1...100)
-        } else {
-            danghwang += 1
-        }
-        danghwangLabel.text = "당황해 \(danghwang)"
-        
-    }
-    @IBAction func soksangBtnTapped(_ sender: UIButton) {
-        if soksang == 0 {
-            soksang = Int.random(in: 1...100)
-        } else {
-            soksang += 1
-        }
-        soksangLabel.text = "속상해 \(soksang)"
-        
-    }
-    @IBAction func uulBtnTapped(_ sender: UIButton) {
-        if uul == 0 {
-            uul = Int.random(in: 1...100)
-        } else {
-            uul += 1
-        }
-        uulLabel.text = "우울해 \(uul)"
-        
-    }
-    @IBAction func boringBtnTapped(_ sender: UIButton) {
-        if boring == 0 {
-            boring = Int.random(in: 1...100)
-        } else {
-            boring += 1
-        }
-        boringLabel.text = "지루해 \(boring)"
-        
-    }
-    @IBAction func silmangBtnTapped(_ sender: UIButton) {
-        if silmang == 0 {
-            silmang = Int.random(in: 1...100)
-        } else {
-            silmang += 1
-        }
-        silmangLabel.text = "실망해 \(silmang)"
-        
-    }
-    @IBAction func sadBtnTapped(_ sender: UIButton) {
-        if sad == 0 {
-            sad = Int.random(in: 1...100)
-        } else {
-            sad += 1
-        }
-        sadLabel.text = "슬퍼해 \(sad)"
-        
-    }
-    
     
     
     func configureUI() {
         configureBtn(
             btn: happyBtn,
-            btnImgName: "slime1"
+            btnImgName: "slime1",
+            tag: 0
         )
         configureBtn(
             btn: sarangBtn,
-            btnImgName: "slime2"
+            btnImgName: "slime2",
+            tag: 1
         )
         configureBtn(
             btn: loveBtn,
-            btnImgName: "slime3"
+            btnImgName: "slime3",
+            tag: 2
         )
         configureBtn(
             btn: danghwangBtn,
-            btnImgName: "slime4"
+            btnImgName: "slime4",
+            tag: 3
         )
         configureBtn(
             btn: soksangBtn,
-            btnImgName: "slime5"
+            btnImgName: "slime5",
+            tag: 4
         )
         configureBtn(
             btn: uulBtn,
-            btnImgName: "slime6"
+            btnImgName: "slime6",
+            tag: 5
         )
         configureBtn(
             btn: boringBtn,
-            btnImgName: "slime7"
+            btnImgName: "slime7",
+            tag: 6
         )
         configureBtn(
             btn: silmangBtn,
-            btnImgName: "slime8"
+            btnImgName: "slime8",
+            tag: 7
         )
         configureBtn(
             btn: sadBtn,
-            btnImgName: "slime9"
+            btnImgName: "slime9",
+            tag: 8
         )
         
         configureLabel(
             label: happyLabel,
-            text: "행복해",
-            labelCount: happy
+            text: "행복해"
         )
         configureLabel(
             label: sarangLabel, 
-            text: "사랑해",
-            labelCount: sarang
+            text: "사랑해"
         )
         configureLabel(
             label: loveLabel, 
-            text: "좋아해", 
-            labelCount: love
+            text: "좋아해"
         )
         configureLabel(
             label: danghwangLabel, 
-            text: "당황해",
-            labelCount: danghwang
+            text: "당황해"
         )
         configureLabel(
             label: soksangLabel, 
-            text: "속상해",
-            labelCount: soksang
+            text: "속상해"
         )
         configureLabel(
             label: uulLabel, 
-            text: "우울해",
-            labelCount: uul
+            text: "우울해"
         )
         configureLabel(
             label: boringLabel, 
-            text: "지루해",
-            labelCount: boring
+            text: "지루해"
         )
         configureLabel(
             label: silmangLabel, 
-            text: "실망해",
-            labelCount: silmang
+            text: "실망해"
         )
         configureLabel(
             label: sadLabel, 
-            text: "슬퍼해",
-            labelCount: sad
+            text: "슬퍼해"
         )
         
     }
     
     private func configureBtn(
         btn: UIButton,
-        btnImgName: String
+        btnImgName: String,
+        tag: Int
     ) {
         let img = UIImage(named: btnImgName)?.withRenderingMode(.alwaysOriginal)
         btn.setTitle("", for: .normal)
@@ -244,12 +184,12 @@ class DiaryViewController: UIViewController {
             for: .normal
         )
         btn.imageView?.contentMode = .scaleAspectFit
+        btn.tag = tag
     }
     
     private func configureLabel(
         label: UILabel,
-        text: String,
-        labelCount: Int
+        text: String
     ) {
         label.text = "\(text) "
         label.textAlignment = .center
