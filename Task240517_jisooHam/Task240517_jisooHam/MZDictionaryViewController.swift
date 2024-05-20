@@ -9,7 +9,7 @@ import UIKit
 
 
 /*
- TODO: -
+ TODO: - 240517
  1. UI구성
  2. 신조어 데이터 마련
     (배열, 딕셔너리 등)
@@ -19,9 +19,21 @@ import UIKit
  4. TapGesture에 의해 키보드 dismiss
  */
 
+/*
+ TODO: - 240520
+ 1. 중복 코드 함수화
+ 2. button tag
+ 3. Dictionary - Array
+ 4. Autolayout Ratio
+ */
+
 final public class MZDictionaryViewController: UIViewController {
 
     let mzDictionary: [MZWord] = [
+        MZWord(word: "융차", description: "유명인과 무명인을 차별"),
+        MZWord(word: "실매", description: "실시간 방송을 관리하는 매니저"),
+        MZWord(word: "만반잘부", description: "만나서 반가워 잘 부탁해"),
+        MZWord(word: "꾸안꾸", description: "꾸민 듯 안 꾸민듯"),
         MZWord(word: "중꺾마", description: "중요한 것은 꺽이지 않는 마음"),
         MZWord(word: "스불재", description: "스스로 불러온 재앙"),
         MZWord(word: "잼얘", description: "재밌는 이야기"),
@@ -70,42 +82,39 @@ final public class MZDictionaryViewController: UIViewController {
          (클로저에서 현재 인스턴스를 명확하기 위함)
          
          */
-        self.hideKeyboardWhenTappedBackground()
+//        self.hideKeyboardWhenTappedBackground()
     }
     
     
-    @IBAction func firstMZWordBtnTapped(_ sender: UIButton) {
-        descriptionLabel.text = "유명인과 무명인을 차별한다."
-    }
-    
-    @IBAction func secondMZWordBtnTapped(_ sender: UIButton) {
-        descriptionLabel.text = "실시간 매니저"
-    }
-    
-    @IBAction func thirdMZWordBtnTapped(_ sender: UIButton) {
-        descriptionLabel.text = "만난서 반가워 잘 부탁해"
-    }
-    
-    @IBAction func fourthMZWordBtnTapped(_ sender: UIButton) {
-        descriptionLabel.text = "꾸민듯 안꾸민듯"
+    @IBAction func btnTapped(_ sender: UIButton) {
+        // if - else 문
+//        if sender.tag == 0 {
+//            descriptionLabel.text = mzDictionary[sender.tag].description
+//        } else if sender.tag == 1 {
+//            descriptionLabel.text = mzDictionary[sender.tag].description
+//        } else if sender.tag == 2 {
+//            descriptionLabel.text = mzDictionary[sender.tag].description
+//        } else if sender.tag == 3 {
+//            descriptionLabel.text = mzDictionary[sender.tag].description
+//        }
+        
+        // switch - case 문
+        switch sender.tag {
+        case 0:
+            descriptionLabel.text = mzDictionary[sender.tag].description
+        case 1:
+            descriptionLabel.text = mzDictionary[sender.tag].description
+        case 2:
+            descriptionLabel.text = mzDictionary[sender.tag].description
+        case 3:
+            descriptionLabel.text = mzDictionary[sender.tag].description
+        default:
+            break
+        }
     }
     
     @IBAction func findBtnTapped(_ sender: UIButton) {
         textFieldText = mzWordTextField.text
-        
-//        for index in mzDictionary {
-//            if index.word == textFieldText {
-//                descriptionLabel.text = index.description
-//                return
-//            }
-//        }
-//        for dic in mzDictionary2 {
-//            if dic.key == textFieldText {
-//                descriptionLabel.text = dic.value
-//                return
-//            }
-//        }
-//        descriptionLabel.text = "새로운 신조어가 나왔나봐요. \n 빠르게 업데이트할게요 ! \n 조금만 기다려주세요"
         
 //        findWordToArray(
 //            mzWord: textFieldText ?? "",
@@ -116,8 +125,9 @@ final public class MZDictionaryViewController: UIViewController {
             mzWord: textFieldText ?? "",
             dictionary: mzDictionary2
         )
+        
+        view.endEditing(true)
     }
-    
     
     @IBAction func textFieldEnterBtnTapped(_ sender: UITextField) {
         textFieldText = mzWordTextField.text
@@ -134,6 +144,11 @@ final public class MZDictionaryViewController: UIViewController {
             dictionary: mzDictionary2
         )
         
+    }
+    
+    
+    @IBAction func screenTapped(_ sender: UITapGestureRecognizer) {
+        view.endEditing(true)
     }
     
     private func findWordToArray(
@@ -161,7 +176,6 @@ final public class MZDictionaryViewController: UIViewController {
         }
         descriptionLabel.text = "새로운 신조어가 나왔나봐요. \n 빠르게 업데이트할게요 ! \n 조금만 기다려주세요"
     }
-    
     
     private func configureUI() {
         configureTFUI()
@@ -205,25 +219,30 @@ final public class MZDictionaryViewController: UIViewController {
     private func configureBtns() {
         configureBtnUI(
             btn: firstMZWord,
-            btnTitle: "융차"
+            btnTitle: "융차",
+            tag: 0
         )
         configureBtnUI(
             btn: secondMZWord,
-            btnTitle: "실매"
+            btnTitle: "실매",
+            tag: 1
         )
         configureBtnUI(
             btn: thirdMZWord,
-            btnTitle: "만반잘부"
+            btnTitle: "만반잘부",
+            tag: 2
         )
         configureBtnUI(
             btn: fourthMZWord,
-            btnTitle: "꾸안꾸"
+            btnTitle: "꾸안꾸",
+            tag: 3
         )
     }
     
     private func configureBtnUI(
         btn: UIButton,
-        btnTitle: String
+        btnTitle: String,
+        tag: Int
     ) {
         // 버튼 크기가 유동적일 수 있나 ? -> 글자 크기에 맞춰서 width가 결정되는
         // 지금은 size inspector로 크기를 수정함
@@ -244,31 +263,30 @@ final public class MZDictionaryViewController: UIViewController {
             for: .normal
         )
         
-        // 이건 btn width에 맞춰서 폰트 사이즈가 줄어드는 것.
-        btn.titleLabel?.adjustsFontSizeToFitWidth = true
+        btn.tag = tag
     }
 }
 
-// 검색해서 붙여넣음
-extension UIViewController {
-    func hideKeyboardWhenTappedBackground() {
-        // tap 인식 -> 키보드 내리겠다
-         let tapEvent = UITapGestureRecognizer(
-            target: self,
-            action: #selector(dismissKeyboard)
-         )
-        // 뷰에 탭 제스쳐가 일어나는 이벤트를 전달하겠다.
-        // true 일때 제스쳐 인식X
-        // 탭 이벤트가 감지 되어야 키보드 dismiss 일어남.
-         tapEvent.cancelsTouchesInView = false
-         view.addGestureRecognizer(tapEvent)
-    }
-    
-    // 실제 키보드를 내려주는 함수
-    @objc func dismissKeyboard() {
-        view.endEditing(true)
-    }
-}
+// 검색해서 붙여넣음 -> Storyboard에 Tap Gesture 넣는 방향으로 변경
+//extension UIViewController {
+//    func hideKeyboardWhenTappedBackground() {
+//        // tap 인식 -> 키보드 내리겠다
+//         let tapEvent = UITapGestureRecognizer(
+//            target: self,
+//            action: #selector(dismissKeyboard)
+//         )
+//        // 뷰에 탭 제스쳐가 일어나는 이벤트를 전달하겠다.
+//        // true 일때 제스쳐 인식X
+//        // 탭 이벤트가 감지 되어야 키보드 dismiss 일어남.
+//         tapEvent.cancelsTouchesInView = false
+//         view.addGestureRecognizer(tapEvent)
+//    }
+//    
+//    // 실제 키보드를 내려주는 함수
+//    @objc func dismissKeyboard() {
+//        view.endEditing(true)
+//    }
+//}
 
 struct MZWord {
     var word: String

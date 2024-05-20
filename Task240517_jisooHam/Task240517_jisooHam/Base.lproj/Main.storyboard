@@ -223,7 +223,7 @@
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" title="Button"/>
                                 <connections>
-                                    <action selector="firstMZWordBtnTapped:" destination="5xX-sp-1pw" eventType="touchUpInside" id="sDN-wA-DW8"/>
+                                    <action selector="btnTapped:" destination="5xX-sp-1pw" eventType="touchUpInside" id="PDh-B4-agk"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vit-SM-iLW">
@@ -232,7 +232,7 @@
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" title="Button"/>
                                 <connections>
-                                    <action selector="secondMZWordBtnTapped:" destination="5xX-sp-1pw" eventType="touchUpInside" id="6Vt-xZ-mfA"/>
+                                    <action selector="btnTapped:" destination="5xX-sp-1pw" eventType="touchUpInside" id="LHt-q9-T9o"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s0i-0X-WOq">
@@ -241,7 +241,7 @@
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" title="Button"/>
                                 <connections>
-                                    <action selector="thirdMZWordBtnTapped:" destination="5xX-sp-1pw" eventType="touchUpInside" id="fgb-mh-9I1"/>
+                                    <action selector="btnTapped:" destination="5xX-sp-1pw" eventType="touchUpInside" id="5DC-dZ-sPb"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H9P-yA-rYi">
@@ -250,7 +250,7 @@
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" title="Button"/>
                                 <connections>
-                                    <action selector="fourthMZWordBtnTapped:" destination="5xX-sp-1pw" eventType="touchUpInside" id="JzM-Ke-8Nk"/>
+                                    <action selector="btnTapped:" destination="5xX-sp-1pw" eventType="touchUpInside" id="Uo3-rN-8dt"/>
                                 </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LT0-8o-NMh">
@@ -276,6 +276,10 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="qam-yo-v4O"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <gestureRecognizers/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="8kk-CE-IxC" appends="YES" id="eOz-Qa-TC2"/>
+                        </connections>
                     </view>
                     <navigationItem key="navigationItem" id="DTi-gA-AE8"/>
                     <connections>
@@ -290,6 +294,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iuW-hw-jFO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="8kk-CE-IxC">
+                    <connections>
+                        <action selector="screenTapped:" destination="5xX-sp-1pw" id="xWX-yP-Wyu"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="852.67175572519079" y="1578.8732394366198"/>
         </scene>
