@@ -31,12 +31,92 @@ class ViewController: UIViewController {
     }
     
     
-    @IBAction func randomBtnTapped(_ sender: UIButton) {
+    @IBAction func calculateBtnTapped(_ sender: UIButton) {
         
+        let gongbaek1 = heightTextField.text != ""
+        let gongbaek2 = weightTextField.text != ""
+        
+        if gongbaek1 && gongbaek2 {
+            if let height = Double(heightTextField.text!),
+               let weight = Double(weightTextField.text!) {
+                let result = calculateBMI(height: height, weight: weight)
+                
+                configureAlert(result: result, height: height, weight: weight)
+            }
+        } else {
+            let alert = UIAlertController(title: "⚠️Error", message: "모두 입력하세요", preferredStyle: .alert)
+            
+            let btn = UIAlertAction(title: "확인", style: .destructive)
+            alert.addAction(btn)
+            
+            present(alert, animated: true)
+        }
         
     }
     
-
+    
+    @IBAction func viewOnTouched(_ sender: UITapGestureRecognizer) {
+        view.endEditing(true)
+    }
+    
+    
+    
+    @IBAction func randomBtnTapped(_ sender: UIButton) {
+        let height = Double.random(in: 0...200)
+        let weight = Double.random(in: 0...100)
+    
+        let result = calculateBMI(height: height, weight: weight)
+        
+        configureAlert(result: result, height: height, weight: weight)
+    }
+    
+    func calculateBMI(
+        height: Double,
+        weight: Double
+    ) -> String {
+        let changedHeight = height * 0.01
+        let result = weight / (changedHeight * changedHeight)
+        
+        return determineResult(value: result).rawValue
+    }
+    
+    func determineResult(
+        value: Double
+    ) -> BMIResult {
+        switch value {
+        case ...18.5:
+            return .underweight
+        case 18.5..<22.9:
+            return .normalweight
+        case 22.9..<24.9:
+            return .obesity
+        case 25...:
+            return .overweight
+        default:
+            return .errors
+        }
+    }
+    
+    func configureAlert(
+        result: String,
+        height: Double,
+        weight: Double
+    ) {
+        let alert = UIAlertController(
+            title: "BMI 계산 결과",
+            message: "키: \(height)m 몸무게: \(weight) kg \n당신은 \(result)입니다.",
+            preferredStyle: .alert
+        )
+        
+        let button = UIAlertAction(title: "확인", style: .default)
+        let button2 = UIAlertAction(title: "취소", style: .destructive)
+        
+        alert.addAction(button)
+        alert.addAction(button2)
+        
+        present(alert, animated: true)
+    }
+    
     func configureUI() {
         configureLabelUI(label: titleLabel, text: "BMI Calculator", fontSize: 17, fontWeight: .bold)
         configureLabelUI(label: descriptionLabel, text: "당신의 BMI 지수를\n알려드릴게요.", fontSize: 13, fontWeight: .medium)
@@ -95,3 +175,10 @@ class ViewController: UIViewController {
     }
 }
 
+enum BMIResult: String {
+    case obesity = "비만"
+    case overweight = "과체중"
+    case normalweight = "정상"
+    case underweight = "저체중"
+    case errors = "에러"
+}

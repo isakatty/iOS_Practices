@@ -71,6 +71,9 @@
                                 <rect key="frame" x="40" y="723" width="313" height="35"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                <connections>
+                                    <action selector="calculateBtnTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="3S6-5L-oR0"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MXh-MZ-vYV">
                                 <rect key="frame" x="100" y="522.33333333333337" width="253" height="20"/>
@@ -95,6 +98,7 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="MXh-MZ-vYV" secondAttribute="trailing" constant="40" id="1kO-CA-w8s"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="AiN-an-Aa0" secondAttribute="trailing" constant="40" id="23b-hr-igV"/>
@@ -124,6 +128,9 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="goY-rq-S5E" secondAttribute="trailing" constant="40" id="uvl-2H-Lgy"/>
                             <constraint firstItem="TMZ-pX-kIV" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="65" id="yk1-tP-NVt"/>
                         </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="Ya3-d9-0hb" appends="YES" id="WuR-cz-DzQ"/>
+                        </connections>
                     </view>
                     <connections>
                         <outlet property="bgImageView" destination="Wrh-aS-6Ee" id="tQO-MG-C36"/>
@@ -138,6 +145,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="Ya3-d9-0hb">
+                    <connections>
+                        <action selector="viewOnTouched:" destination="BYZ-38-t0r" id="CMR-do-TF6"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-451.14503816793894" y="-7.042253521126761"/>
         </scene>
