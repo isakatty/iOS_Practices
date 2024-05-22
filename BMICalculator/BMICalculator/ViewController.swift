@@ -24,6 +24,9 @@ class ViewController: UIViewController {
     @IBOutlet var randomBMIButton: UIButton!
     @IBOutlet var calculateBtn: UIButton!
     
+    @IBOutlet var nicknameTextField: UITextField!
+    @IBOutlet var resetBtn: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -35,14 +38,22 @@ class ViewController: UIViewController {
         
         let gongbaek1 = heightTextField.text != ""
         let gongbaek2 = weightTextField.text != ""
+        let gongbaek3 = nicknameTextField.text != ""
         
-        if gongbaek1 && gongbaek2 {
-            if let height = Double(heightTextField.text!),
-               let weight = Double(weightTextField.text!) {
-                let result = calculateBMI(height: height, weight: weight)
-                
-                configureAlert(result: result, height: height, weight: weight)
+        if gongbaek1 && gongbaek2 && gongbaek3 {
+            guard let height = Double(heightTextField.text!),
+                  let weight = Double(weightTextField.text!),
+                  let nickname = nicknameTextField.text else {
+                return
             }
+            let result = calculateBMI(height: height, weight: weight)
+            configureAlert(result: result, height: height, weight: weight, nickname: nickname)
+            
+            // MARK: UserDefaults에 저장
+            UserDefaults.standard.set(height, forKey: "height")
+            UserDefaults.standard.set(weight, forKey: "weight")
+            UserDefaults.standard.set(nickname, forKey: "nickname")
+            
         } else {
             let alert = UIAlertController(title: "⚠️Error", message: "모두 입력하세요", preferredStyle: .alert)
             
@@ -60,14 +71,41 @@ class ViewController: UIViewController {
     }
     
     
+    @IBAction func resetBtnTapped(_ sender: UIButton) {
+        
+        let alert = UIAlertController(title: "기록 삭제", message: "기입한 내용을 삭제하시겠습니까 ?", preferredStyle: .alert)
+        
+        let checkBtn = UIAlertAction(title: "확인", style: .destructive) { [weak self] _ in
+            UserDefaults.standard.removeObject(forKey: "height")
+            UserDefaults.standard.removeObject(forKey: "weight")
+            UserDefaults.standard.removeObject(forKey: "nickname")
+            
+            self?.heightTextField.text = ""
+            self?.weightTextField.text = ""
+            self?.nicknameTextField.text = ""
+        }
+        
+        let cancelBtn = UIAlertAction(title: "취소", style: .cancel)
+        
+        alert.addAction(checkBtn)
+        alert.addAction(cancelBtn)
+        
+        present(alert, animated: true)
+        
+    }
     
     @IBAction func randomBtnTapped(_ sender: UIButton) {
         let height = Double.random(in: 0...200)
         let weight = Double.random(in: 0...100)
+        let nickname = "아파트먼츠"
     
         let result = calculateBMI(height: height, weight: weight)
         
-        configureAlert(result: result, height: height, weight: weight)
+        configureAlert(result: result, height: height, weight: weight, nickname: nickname)
+        
+        UserDefaults.standard.set(height, forKey: "height")
+        UserDefaults.standard.set(weight, forKey: "weight")
+        UserDefaults.standard.set(nickname, forKey: "nickname")
     }
     
     func calculateBMI(
@@ -100,11 +138,12 @@ class ViewController: UIViewController {
     func configureAlert(
         result: String,
         height: Double,
-        weight: Double
+        weight: Double,
+        nickname: String
     ) {
         let alert = UIAlertController(
             title: "BMI 계산 결과",
-            message: "키: \(height)m 몸무게: \(weight) kg \n당신은 \(result)입니다.",
+            message: "키: \(height)m 몸무게: \(weight) kg \n\(nickname)님은 \(result)입니다.",
             preferredStyle: .alert
         )
         
@@ -118,6 +157,15 @@ class ViewController: UIViewController {
     }
     
     func configureUI() {
+        
+        let height = UserDefaults.standard.double(forKey: "height")
+        let weight = UserDefaults.standard.double(forKey: "weight")
+        let nickname = UserDefaults.standard.string(forKey: "nickname")
+        
+        heightTextField.text = "\(height)"
+        weightTextField.text = "\(weight)"
+        nicknameTextField.text = nickname
+        
         configureLabelUI(label: titleLabel, text: "BMI Calculator", fontSize: 17, fontWeight: .bold)
         configureLabelUI(label: descriptionLabel, text: "당신의 BMI 지수를\n알려드릴게요.", fontSize: 13, fontWeight: .medium)
         configureLabelUI(label: heightDescriptionLabel, text: "키가 어떻게 되니사요 ?", fontSize: 12, fontWeight: .medium)
@@ -130,6 +178,8 @@ class ViewController: UIViewController {
         bgImageView.image = UIImage(named: "image")?.withRenderingMode(.alwaysOriginal)
         bgImageView.contentMode = .scaleToFill
         
+        configureTFUI(textField: nicknameTextField)
+        configureBtnUI(btn: resetBtn, btnTitle: "Reset", fontColor: .white, fontSize: 17, fontWeight: .semibold, bgColor: .red)
     }
     
     func configureLabelUI(
@@ -156,7 +206,9 @@ class ViewController: UIViewController {
         textField.layer.borderColor = UIColor.black.cgColor
         textField.layer.borderWidth = 3
         // 숫자 입력만 받게 하기
-        textField.keyboardType = .numberPad
+        if textField != nicknameTextField {
+            textField.keyboardType = .numberPad
+        }
     }
     
     func configureBtnUI(
