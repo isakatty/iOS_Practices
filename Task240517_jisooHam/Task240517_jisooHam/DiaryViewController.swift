@@ -25,6 +25,7 @@ class DiaryViewController: UIViewController {
     @IBOutlet var boringBtn: UIButton!
     @IBOutlet var silmangBtn: UIButton!
     @IBOutlet var sadBtn: UIButton!
+    @IBOutlet var resetBtn: UIButton!
     
     // 라벨
     @IBOutlet var happyLabel: UILabel!
@@ -44,11 +45,25 @@ class DiaryViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .magenta
         
         configureUI()
 
     }
+    
+    @IBAction func resetBtnTapped(_ sender: UIButton) {
+        var savedData = UserDefaults.standard.array(forKey: "countList") as! [Int]
+        
+        for (index , element)in savedData.enumerated() {
+            
+            savedData[index] = 0
+            print(savedData[index])
+            labelCollection[index].text = "\(labelList[index]) \(savedData[index])"
+        }
+        
+        UserDefaults.standard.set(savedData, forKey: "countList")
+        
+    }
+    
     
     @IBAction func btnClicked(_ sender: UIButton) {
         switch sender.tag {
@@ -77,8 +92,15 @@ class DiaryViewController: UIViewController {
     }
     
     private func changeCount(BtnTag tagNumber: Int) {
-        count[tagNumber] += 1
-        labelCollection[tagNumber].text = "\(labelList[tagNumber]) \(count[tagNumber])"
+        
+        var savedData = UserDefaults.standard.array(forKey: "countList") as! [Int]
+        
+        savedData[tagNumber] += 1
+        UserDefaults.standard.set(savedData, forKey: "countList")
+        
+        labelCollection[tagNumber].text = "\(labelList[tagNumber]) \(savedData[tagNumber])"
+        
+        print("\(savedData)")
     }
     
     
@@ -131,40 +153,54 @@ class DiaryViewController: UIViewController {
         
         configureLabel(
             label: happyLabel,
-            text: "행복해"
+            text: "행복해",
+            tag: 0
         )
         configureLabel(
             label: sarangLabel, 
-            text: "사랑해"
+            text: "사랑해",
+            tag: 1
         )
         configureLabel(
             label: loveLabel, 
-            text: "좋아해"
+            text: "좋아해",
+            tag: 2
         )
         configureLabel(
             label: danghwangLabel, 
-            text: "당황해"
+            text: "당황해",
+            tag: 3
         )
         configureLabel(
             label: soksangLabel, 
-            text: "속상해"
+            text: "속상해",
+            tag: 4
         )
         configureLabel(
             label: uulLabel, 
-            text: "우울해"
+            text: "우울해",
+            tag: 5
         )
         configureLabel(
             label: boringLabel, 
-            text: "지루해"
+            text: "지루해",
+            tag: 6
         )
         configureLabel(
             label: silmangLabel, 
-            text: "실망해"
+            text: "실망해",
+            tag: 7
         )
         configureLabel(
             label: sadLabel, 
-            text: "슬퍼해"
+            text: "슬퍼해",
+            tag: 8
         )
+        
+        resetBtn.setTitle("RESET", for: .normal)
+        resetBtn.setTitleColor(.white, for: .normal)
+        resetBtn.backgroundColor = .red
+        resetBtn.layer.cornerRadius = 10
         
     }
     
@@ -185,14 +221,20 @@ class DiaryViewController: UIViewController {
     
     private func configureLabel(
         label: UILabel,
-        text: String
+        text: String,
+        tag: Int
     ) {
-        label.text = "\(text) "
+        let savedData = UserDefaults.standard.array(forKey: "countList") as! [Int]
+        
+        print(savedData)
+        
+        label.text = "\(text) \(savedData[tag])"
         label.textAlignment = .center
         label.font = .systemFont(
             ofSize: 13,
             weight: .medium
         )
+        label.tag = tag
     }
     
 }
