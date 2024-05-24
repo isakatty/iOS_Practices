@@ -8,7 +8,7 @@
 import UIKit
 
 /*  
- MARK: Header의 textColor 변경은 어디서 해야하지 ?
+ MARK: section의 textColor 변경은 어디서 해야하지 ?
  
  데이터 구성 이런 형식으로 되면 안되는거였던건가 ?
  
