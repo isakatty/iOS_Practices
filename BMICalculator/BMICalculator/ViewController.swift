@@ -47,7 +47,16 @@ class ViewController: UIViewController {
                 return
             }
             let result = calculateBMI(height: height, weight: weight)
-            configureAlert(result: result, height: height, weight: weight, nickname: nickname)
+            
+            configureAlert(
+                result: result,
+                height: height,
+                weight: weight,
+                nickname: nickname,
+                alertTitle: "BMI 계산기",
+                alertMsg: "키: \(height)m 몸무게: \(weight) kg \n\(nickname)님은 \(result)입니다.",
+                alertStyle: .alert
+            )
             
             // MARK: UserDefaults에 저장
             UserDefaults.standard.set(height, forKey: "height")
@@ -101,7 +110,15 @@ class ViewController: UIViewController {
     
         let result = calculateBMI(height: height, weight: weight)
         
-        configureAlert(result: result, height: height, weight: weight, nickname: nickname)
+        configureAlert(
+            result: result,
+            height: height,
+            weight: weight,
+            nickname: nickname,
+            alertTitle: "랜덤 BMI 계산기",
+            alertMsg: "키: \(height)m 몸무게: \(weight) kg \n\(nickname)님은 \(result)입니다.",
+            alertStyle: .alert
+        )
         
         UserDefaults.standard.set(height, forKey: "height")
         UserDefaults.standard.set(weight, forKey: "weight")
@@ -133,27 +150,6 @@ class ViewController: UIViewController {
         default:
             return .errors
         }
-    }
-    
-    func configureAlert(
-        result: String,
-        height: Double,
-        weight: Double,
-        nickname: String
-    ) {
-        let alert = UIAlertController(
-            title: "BMI 계산 결과",
-            message: "키: \(height)m 몸무게: \(weight) kg \n\(nickname)님은 \(result)입니다.",
-            preferredStyle: .alert
-        )
-        
-        let button = UIAlertAction(title: "확인", style: .default)
-        let button2 = UIAlertAction(title: "취소", style: .destructive)
-        
-        alert.addAction(button)
-        alert.addAction(button2)
-        
-        present(alert, animated: true)
     }
     
     func configureUI() {
