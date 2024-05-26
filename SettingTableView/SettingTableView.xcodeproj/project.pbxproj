@@ -68,21 +68,45 @@
 		C9541F652BFF22D100D00218 /* SettingTableView */ = {
 			isa = PBXGroup;
 			children = (
+				C99031392C038D56002542BD /* TableViewCell */,
+				C99031382C038D40002542BD /* ViewController */,
+				C9541F6F2BFF22D200D00218 /* Assets.xcassets */,
+				C99031372C038D29002542BD /* Storyboard */,
 				C9541F662BFF22D100D00218 /* AppDelegate.swift */,
 				C9541F682BFF22D100D00218 /* SceneDelegate.swift */,
-				C9541F6A2BFF22D100D00218 /* ViewController.swift */,
-				C9541F6C2BFF22D100D00218 /* Main.storyboard */,
-				C9541F6F2BFF22D200D00218 /* Assets.xcassets */,
 				C9541F712BFF22D200D00218 /* LaunchScreen.storyboard */,
 				C9541F742BFF22D200D00218 /* Info.plist */,
-				C94BBCE32BFF6E0100E68B02 /* TalkSetting.storyboard */,
-				C94BBCE52BFF6E2C00E68B02 /* SettingTableViewController.swift */,
-				C94BBCE72BFF87D200E68B02 /* SettingsTableViewController.swift */,
-				C94BBCE92BFF8B4C00E68B02 /* Shopping.storyboard */,
-				C99031332C03868E002542BD /* ShoppingTableViewController.swift */,
-				C99031352C0386AE002542BD /* ShoppingTableViewCell.swift */,
 			);
 			path = SettingTableView;
+			sourceTree = "<group>";
+		};
+		C99031372C038D29002542BD /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				C94BBCE32BFF6E0100E68B02 /* TalkSetting.storyboard */,
+				C94BBCE92BFF8B4C00E68B02 /* Shopping.storyboard */,
+				C9541F6C2BFF22D100D00218 /* Main.storyboard */,
+			);
+			path = Storyboard;
+			sourceTree = "<group>";
+		};
+		C99031382C038D40002542BD /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				C94BBCE52BFF6E2C00E68B02 /* SettingTableViewController.swift */,
+				C94BBCE72BFF87D200E68B02 /* SettingsTableViewController.swift */,
+				C99031332C03868E002542BD /* ShoppingTableViewController.swift */,
+				C9541F6A2BFF22D100D00218 /* ViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		C99031392C038D56002542BD /* TableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				C99031352C0386AE002542BD /* ShoppingTableViewCell.swift */,
+			);
+			path = TableViewCell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
