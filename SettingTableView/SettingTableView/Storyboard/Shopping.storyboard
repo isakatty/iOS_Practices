@@ -24,6 +24,9 @@
                                     <rect key="frame" x="20" y="5" width="288" height="55"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                     <textInputTraits key="textInputTraits"/>
+                                    <connections>
+                                        <action selector="tfEnterTapped:" destination="S2M-tD-SlY" eventType="editingDidEndOnExit" id="6HQ-tU-JqT"/>
+                                    </connections>
                                 </textField>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rmG-M4-PeF">
                                     <rect key="frame" x="338" y="5" width="50" height="55"/>
@@ -95,6 +98,11 @@
                                         <constraint firstAttribute="bottom" secondItem="ejr-QU-R48" secondAttribute="bottom" constant="5" id="puC-cA-XF9"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="checkBtn" destination="ejr-QU-R48" id="UxV-o8-YRC"/>
+                                    <outlet property="favBtn" destination="4dd-mi-AWD" id="evM-Nw-3jh"/>
+                                    <outlet property="todoLabel" destination="v4P-9Y-laF" id="9ki-KP-zSU"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -103,6 +111,10 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="iU5-LK-bcb"/>
+                    <connections>
+                        <outlet property="addBtn" destination="rmG-M4-PeF" id="fyA-l4-qK7"/>
+                        <outlet property="todoTextField" destination="y53-Qn-Yqn" id="HQy-fm-ZmU"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UpC-cP-RT7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
