@@ -75,6 +75,13 @@
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="cityNameLabel" destination="5vl-97-ggM" id="kno-GT-EuD"/>
+                <outlet property="descriptionLabel" destination="naK-q7-8rQ" id="Mws-Ze-Zyp"/>
+                <outlet property="favBtn" destination="miJ-0c-S50" id="3zf-S8-Rho"/>
+                <outlet property="gradeLabel" destination="xeE-cy-tf6" id="9J8-pS-1m0"/>
+                <outlet property="mainImgView" destination="4XP-Tu-nkH" id="bfd-Sq-gcv"/>
+            </connections>
             <point key="canvasLocation" x="129.7709923664122" y="10.91549295774648"/>
         </tableViewCell>
     </objects>
