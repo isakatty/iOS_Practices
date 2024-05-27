@@ -42,7 +42,7 @@ class CityDetailViewController
         _ tableView: UITableView,
         cellForRowAt indexPath: IndexPath
     ) -> UITableViewCell {
-        if list[indexPath.row].ad {
+        if result[indexPath.row].ad {
             guard let cell = cityTableView.dequeueReusableCell(
                 withIdentifier: "AdTableViewCell",
                 for: indexPath
@@ -64,31 +64,20 @@ class CityDetailViewController
             else { return UITableViewCell() }
             
             cell.configureUI()
-            cell.configureData(data: result[indexPath.row])
-            cell.favBtn.tag = indexPath.row
+            cell.configureData(data: result[indexPath.row], tag: indexPath.row)
             
-            let iconName = result[indexPath.row].like ?? false
-            ? "heart.fill"
-            : "haert"
-            
-            cell.favBtn.setImage(
-                UIImage(systemName: iconName),
-                for: .normal
-            )
             cell.favBtn.addTarget(
                 self,
                 action: #selector(favBtnTapped),
                 for: .touchUpInside
             )
-            
             return cell
         }
         
     }
     
     @objc func favBtnTapped(sender: UIButton) {
-        result[sender.tag].like = !(result[sender.tag].like ?? false)
-        
+        result[sender.tag].like = !result[sender.tag].like!
         cityTableView.reloadRows(at: [IndexPath(row: sender.tag, section: 0)], with: .automatic)
     }
 }
