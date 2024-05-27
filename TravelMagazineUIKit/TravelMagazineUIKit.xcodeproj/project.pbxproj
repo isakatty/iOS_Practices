@@ -25,6 +25,8 @@
 		C9EF34D52C04667100FAE06A /* CityDetailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C9EF34D32C04667100FAE06A /* CityDetailTableViewCell.xib */; };
 		C9EF34D82C0468AB00FAE06A /* AdTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9EF34D62C0468AB00FAE06A /* AdTableViewCell.swift */; };
 		C9EF34D92C0468AB00FAE06A /* AdTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C9EF34D72C0468AB00FAE06A /* AdTableViewCell.xib */; };
+		C9EF34DE2C046EB000FAE06A /* CityDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9EF34DD2C046EB000FAE06A /* CityDetailViewController.swift */; };
+		C9EF34E02C04715300FAE06A /* TravelModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9EF34DF2C04715300FAE06A /* TravelModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,6 +49,8 @@
 		C9EF34D32C04667100FAE06A /* CityDetailTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CityDetailTableViewCell.xib; sourceTree = "<group>"; };
 		C9EF34D62C0468AB00FAE06A /* AdTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdTableViewCell.swift; sourceTree = "<group>"; };
 		C9EF34D72C0468AB00FAE06A /* AdTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AdTableViewCell.xib; sourceTree = "<group>"; };
+		C9EF34DD2C046EB000FAE06A /* CityDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityDetailViewController.swift; sourceTree = "<group>"; };
+		C9EF34DF2C04715300FAE06A /* TravelModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TravelModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +101,7 @@
 		C990312E2C0359E7002542BD /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				C9EF34DF2C04715300FAE06A /* TravelModel.swift */,
 				C99031272C033658002542BD /* Magazine.swift */,
 				C990312C2C0359D8002542BD /* Restaurant.swift */,
 				C99031252C033644002542BD /* MagazineInfo.swift */,
@@ -109,6 +114,7 @@
 			children = (
 				C99031212C033354002542BD /* TravelMagazineTableViewController.swift */,
 				C99031312C03643D002542BD /* FoodStoreTableViewController.swift */,
+				C9EF34DD2C046EB000FAE06A /* CityDetailViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -116,9 +122,6 @@
 		C9EF34DB2C046A1500FAE06A /* TabelViewCell */ = {
 			isa = PBXGroup;
 			children = (
-				C9EF34D02C04661D00FAE06A /* CityDetail.storyboard */,
-				C9EF34D32C04667100FAE06A /* CityDetailTableViewCell.xib */,
-				C9EF34D72C0468AB00FAE06A /* AdTableViewCell.xib */,
 				C99031232C033497002542BD /* TravelMagazineTableViewCell.swift */,
 				C990312F2C036414002542BD /* FoodStoreTableViewCell.swift */,
 				C9EF34D22C04667100FAE06A /* CityDetailTableViewCell.swift */,
@@ -130,6 +133,9 @@
 		C9EF34DC2C046A4900FAE06A /* storyboard */ = {
 			isa = PBXGroup;
 			children = (
+				C9EF34D02C04661D00FAE06A /* CityDetail.storyboard */,
+				C9EF34D32C04667100FAE06A /* CityDetailTableViewCell.xib */,
+				C9EF34D72C0468AB00FAE06A /* AdTableViewCell.xib */,
 			);
 			path = storyboard;
 			sourceTree = "<group>";
@@ -218,9 +224,11 @@
 				C9588BF02C0322DC005D0EB7 /* AppDelegate.swift in Sources */,
 				C9588BF22C0322DC005D0EB7 /* SceneDelegate.swift in Sources */,
 				C990312D2C0359D8002542BD /* Restaurant.swift in Sources */,
+				C9EF34DE2C046EB000FAE06A /* CityDetailViewController.swift in Sources */,
 				C99031322C03643D002542BD /* FoodStoreTableViewController.swift in Sources */,
 				C99031282C033658002542BD /* Magazine.swift in Sources */,
 				C9EF34D82C0468AB00FAE06A /* AdTableViewCell.swift in Sources */,
+				C9EF34E02C04715300FAE06A /* TravelModel.swift in Sources */,
 				C99031242C033497002542BD /* TravelMagazineTableViewCell.swift in Sources */,
 				C9EF34D42C04667100FAE06A /* CityDetailTableViewCell.swift in Sources */,
 				C99031262C033644002542BD /* MagazineInfo.swift in Sources */,
