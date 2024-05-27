@@ -9,16 +9,18 @@ import UIKit
 
 class CityDetailViewController
 : UIViewController, UITableViewDelegate, UITableViewDataSource {
-    var list = TravelInfo().travel
+    let list = TravelInfo().travel
+    var result = [Travel]()
     
     @IBOutlet var cityTableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        result = list
         
+        cityTableView.rowHeight = 140
         cityTableView.delegate = self
         cityTableView.dataSource = self
-        
         cityTableView.register(
             UINib(nibName: "AdTableViewCell", bundle: nil),
             forCellReuseIdentifier: "AdTableViewCell"
@@ -27,25 +29,19 @@ class CityDetailViewController
             UINib(nibName: "CityDetailTableViewCell", bundle: nil),
             forCellReuseIdentifier: "CityDetailTableViewCell"
         )
-        
-        cityTableView.rowHeight = 180
     }
     
     func tableView(
         _ tableView: UITableView,
         numberOfRowsInSection section: Int
     ) -> Int {
-        return list.count
+        return result.count
     }
     
     func tableView(
         _ tableView: UITableView,
         cellForRowAt indexPath: IndexPath
     ) -> UITableViewCell {
-        
-        // [indexPath.row].ad 가 true면 adCell, false면 basicCell
-        // Cell마다 property가 다른데 ?
-        
         if list[indexPath.row].ad {
             guard let cell = cityTableView.dequeueReusableCell(
                 withIdentifier: "AdTableViewCell",
@@ -53,7 +49,7 @@ class CityDetailViewController
             ) as? AdTableViewCell
             else { return UITableViewCell() }
             
-            cell.configureData(data: list[indexPath.row])
+            cell.configureData(data: result[indexPath.row])
             
             return cell
         } else {
@@ -63,11 +59,32 @@ class CityDetailViewController
             ) as? CityDetailTableViewCell
             else { return UITableViewCell() }
             
-            cell.configureData(data: list[indexPath.row])
+            cell.configureUI()
+            cell.configureData(data: result[indexPath.row])
+            cell.favBtn.tag = indexPath.row
+            
+            let iconName = result[indexPath.row].like ?? false
+            ? "heart.fill"
+            : "haert"
+            
+            cell.favBtn.setImage(
+                UIImage(systemName: iconName),
+                for: .normal
+            )
+            cell.favBtn.addTarget(
+                self,
+                action: #selector(favBtnTapped),
+                for: .touchUpInside
+            )
             
             return cell
         }
         
     }
-
+    
+    @objc func favBtnTapped(sender: UIButton) {
+        result[sender.tag].like = !(result[sender.tag].like ?? false)
+        
+        cityTableView.reloadRows(at: [IndexPath(row: sender.tag, section: 0)], with: .automatic)
+    }
 }

@@ -17,11 +17,11 @@ class CityDetailTableViewCell: UITableViewCell {
     @IBOutlet var favBtn: UIButton!
     @IBOutlet var mainImgView: UIImageView!
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        
-        configureUI()
-    }
+//    override func awakeFromNib() {
+//        super.awakeFromNib()
+//        
+//        configureUI()
+//    }
     
     func configureUI() {
         cityNameLabel.font = .systemFont(
@@ -44,6 +44,9 @@ class CityDetailTableViewCell: UITableViewCell {
         
         mainImgView.contentMode = .scaleAspectFill
         mainImgView.layer.cornerRadius = 10
+        
+        favBtn.setTitle("", for: .normal)
+        favBtn.tintColor = UIColor.purple
     }
     
     func configureData(data: Travel) {
@@ -52,7 +55,8 @@ class CityDetailTableViewCell: UITableViewCell {
         
         guard let grade = data.grade,
               let save = data.save else { return }
-        gradeLabel.text = "(\(grade)) · 저장 \(save)"
+        
+        gradeLabel.text = "(\(grade)) · 저장  \(save.formatted())"
         
         guard let imgUrl = data.travel_image else { return }
         let url = URL(string: imgUrl)
