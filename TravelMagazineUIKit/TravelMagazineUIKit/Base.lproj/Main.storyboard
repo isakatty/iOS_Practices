@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="f0J-6a-PMA">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="5kS-FB-Srp">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -87,7 +87,17 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3gG-SX-cXu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2.2900763358778624" y="360.56338028169017"/>
+            <point key="canvasLocation" x="-2" y="1115"/>
+        </scene>
+        <!--CityDetail-->
+        <scene sceneID="DoG-bw-qcz">
+            <objects>
+                <viewControllerPlaceholder storyboardName="CityDetail" id="wqG-FW-mrD" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="ltf-pi-GJh"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gcN-i4-4XL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="861" y="974"/>
         </scene>
         <!--Food Store Table View Controller-->
         <scene sceneID="hhV-oG-NEn">
@@ -219,12 +229,13 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qud-3y-Lv6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1012.9770992366412" y="360.56338028169017"/>
+            <point key="canvasLocation" x="-1060" y="260"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Item-->
         <scene sceneID="W4f-1u-WKh">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="l4i-2N-VeF" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" image="cart.fill" catalog="system" selectedImage="cart.fill" id="bVE-vU-Dli"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="7e8-2k-h0O">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
@@ -237,10 +248,48 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SdA-zu-pOP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2" y="-435"/>
+            <point key="canvasLocation" x="-2" y="275"/>
+        </scene>
+        <!--Item-->
+        <scene sceneID="x8X-Sh-pnh">
+            <objects>
+                <navigationController id="fzb-Jp-Mx7" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" image="airplane.departure" catalog="system" selectedImage="airplane.departure" id="CD2-JP-izZ"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="sCy-pe-Fxg">
+                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="wqG-FW-mrD" kind="relationship" relationship="rootViewController" id="5sJ-cX-RCD"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="41c-ln-FEc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="837" y="275"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="PWp-nY-UP3">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="5kS-FB-Srp" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="I5z-T2-Kuc">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="l4i-2N-VeF" kind="relationship" relationship="viewControllers" id="ibu-Rq-t0a"/>
+                        <segue destination="fzb-Jp-Mx7" kind="relationship" relationship="viewControllers" id="Q7D-hv-ayb"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eF3-iL-5cp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2.2900763358778624" y="-435.21126760563385"/>
         </scene>
     </scenes>
     <resources>
+        <image name="airplane.departure" catalog="system" width="128" height="84"/>
+        <image name="cart.fill" catalog="system" width="128" height="102"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
