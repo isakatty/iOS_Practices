@@ -17,11 +17,11 @@ class CityDetailTableViewCell: UITableViewCell {
     @IBOutlet var favBtn: UIButton!
     @IBOutlet var mainImgView: UIImageView!
     
-//    override func awakeFromNib() {
-//        super.awakeFromNib()
-//        
-//        configureUI()
-//    }
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        
+        configureUI()
+    }
     
     func configureUI() {
         cityNameLabel.font = .systemFont(

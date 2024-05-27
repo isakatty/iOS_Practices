@@ -51,6 +51,10 @@ class CityDetailViewController
             
             cell.configureData(data: result[indexPath.row])
             
+            var randomInt = Int.random(in: 0...7)
+            cell.backgroundColor = cell.color[randomInt]
+            cell.alpha = 0.6
+            
             return cell
         } else {
             guard let cell = cityTableView.dequeueReusableCell(

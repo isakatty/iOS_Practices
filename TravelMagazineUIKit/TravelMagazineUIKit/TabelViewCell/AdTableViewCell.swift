@@ -11,6 +11,17 @@ class AdTableViewCell: UITableViewCell {
     @IBOutlet var adLabel: UILabel!
     @IBOutlet var literalAdLabel: UILabel!
     
+    var color: [UIColor] = [
+        .brown,
+        .cyan,
+        .yellow,
+        .orange,
+        .purple,
+        .systemPink,
+        .green,
+        .magenta
+    ]
+    
     override func awakeFromNib() {
         adLabel.textAlignment = .center
         adLabel.numberOfLines = .zero

@@ -235,7 +235,7 @@
         <scene sceneID="W4f-1u-WKh">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="l4i-2N-VeF" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="bVE-vU-Dli"/>
+                    <tabBarItem key="tabBarItem" title="Item" image="cart.fill" catalog="system" selectedImage="cart.fill" id="bVE-vU-Dli"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="7e8-2k-h0O">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
@@ -254,7 +254,7 @@
         <scene sceneID="x8X-Sh-pnh">
             <objects>
                 <navigationController id="fzb-Jp-Mx7" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="CD2-JP-izZ"/>
+                    <tabBarItem key="tabBarItem" title="Item" image="airplane.departure" catalog="system" selectedImage="airplane.departure" id="CD2-JP-izZ"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="sCy-pe-Fxg">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -273,6 +273,7 @@
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="5kS-FB-Srp" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="I5z-T2-Kuc">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
@@ -287,6 +288,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="airplane.departure" catalog="system" width="128" height="84"/>
+        <image name="cart.fill" catalog="system" width="128" height="102"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
