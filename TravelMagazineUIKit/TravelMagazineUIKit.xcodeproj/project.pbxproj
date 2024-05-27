@@ -80,6 +80,8 @@
 		C9588BEE2C0322DC005D0EB7 /* TravelMagazineUIKit */ = {
 			isa = PBXGroup;
 			children = (
+				C9EF34DC2C046A4900FAE06A /* storyboard */,
+				C9EF34DB2C046A1500FAE06A /* TabelViewCell */,
 				C9EF34DA2C0468AF00FAE06A /* ViewController */,
 				C990312E2C0359E7002542BD /* Model */,
 				C9588BEF2C0322DC005D0EB7 /* AppDelegate.swift */,
@@ -88,15 +90,6 @@
 				C9588BF82C0322DD005D0EB7 /* Assets.xcassets */,
 				C9588BFA2C0322DD005D0EB7 /* LaunchScreen.storyboard */,
 				C9588BFD2C0322DD005D0EB7 /* Info.plist */,
-				C99031212C033354002542BD /* TravelMagazineTableViewController.swift */,
-				C99031232C033497002542BD /* TravelMagazineTableViewCell.swift */,
-				C990312F2C036414002542BD /* FoodStoreTableViewCell.swift */,
-				C99031312C03643D002542BD /* FoodStoreTableViewController.swift */,
-				C9EF34D02C04661D00FAE06A /* CityDetail.storyboard */,
-				C9EF34D22C04667100FAE06A /* CityDetailTableViewCell.swift */,
-				C9EF34D32C04667100FAE06A /* CityDetailTableViewCell.xib */,
-				C9EF34D62C0468AB00FAE06A /* AdTableViewCell.swift */,
-				C9EF34D72C0468AB00FAE06A /* AdTableViewCell.xib */,
 			);
 			path = TravelMagazineUIKit;
 			sourceTree = "<group>";
@@ -114,8 +107,31 @@
 		C9EF34DA2C0468AF00FAE06A /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				C99031212C033354002542BD /* TravelMagazineTableViewController.swift */,
+				C99031312C03643D002542BD /* FoodStoreTableViewController.swift */,
 			);
 			path = ViewController;
+			sourceTree = "<group>";
+		};
+		C9EF34DB2C046A1500FAE06A /* TabelViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				C9EF34D02C04661D00FAE06A /* CityDetail.storyboard */,
+				C9EF34D32C04667100FAE06A /* CityDetailTableViewCell.xib */,
+				C9EF34D72C0468AB00FAE06A /* AdTableViewCell.xib */,
+				C99031232C033497002542BD /* TravelMagazineTableViewCell.swift */,
+				C990312F2C036414002542BD /* FoodStoreTableViewCell.swift */,
+				C9EF34D22C04667100FAE06A /* CityDetailTableViewCell.swift */,
+				C9EF34D62C0468AB00FAE06A /* AdTableViewCell.swift */,
+			);
+			path = TabelViewCell;
+			sourceTree = "<group>";
+		};
+		C9EF34DC2C046A4900FAE06A /* storyboard */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
