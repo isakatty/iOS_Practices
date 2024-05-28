@@ -17,27 +17,37 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="LhM-xH-Big">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="iKg-3m-TQV">
                                 <rect key="frame" x="0.0" y="59" width="393" height="759"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CityDetailTableViewCell" id="dh0-Dn-yM9" customClass="CityDetailTableViewCell" customModule="TravelMagazineUIKit" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="50" width="393" height="44.666667938232422"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="dh0-Dn-yM9" id="ANy-4d-PlC">
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="44.666667938232422"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="LhM-xH-Big" secondAttribute="trailing" id="UjP-bT-MUa"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="LhM-xH-Big" secondAttribute="bottom" id="brj-Op-o88"/>
-                            <constraint firstItem="LhM-xH-Big" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="qD8-37-RBD"/>
-                            <constraint firstItem="LhM-xH-Big" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="x4X-QN-Fng"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="iKg-3m-TQV" secondAttribute="bottom" id="6Rr-Ir-DRk"/>
+                            <constraint firstItem="iKg-3m-TQV" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="DOb-M4-ghC"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="iKg-3m-TQV" secondAttribute="trailing" id="UHF-Rv-Bvd"/>
+                            <constraint firstItem="iKg-3m-TQV" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="cgC-Yb-UH6"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="cityTableView" destination="LhM-xH-Big" id="I4y-UW-Yvx"/>
+                        <outlet property="cityTableView" destination="iKg-3m-TQV" id="eul-Mh-9hQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="131" y="-27"/>
+            <point key="canvasLocation" x="332" y="32"/>
         </scene>
     </scenes>
     <resources>

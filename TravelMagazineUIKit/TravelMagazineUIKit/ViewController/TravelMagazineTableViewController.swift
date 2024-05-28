@@ -17,6 +17,7 @@ class TravelMagazineTableViewController: UITableViewController {
         super.viewDidLoad()
         
         tableView.rowHeight = 410
+        configureBaseView("Travel")
     }
     
     override func tableView(
@@ -39,7 +40,7 @@ class TravelMagazineTableViewController: UITableViewController {
         changedDateFormatter.dateFormat = "yy년 MM월 dd일"
         
         guard let cell = tableView.dequeueReusableCell(
-            withIdentifier: "TravelMagazineTableViewCell",
+            withIdentifier: TravelMagazineTableViewCell.identifier,
             for: indexPath
         ) as? TravelMagazineTableViewCell,
               let changedDate = dateFormatter.date(from: magazineInfo.magazine[indexPath.row].date)
@@ -49,36 +50,24 @@ class TravelMagazineTableViewController: UITableViewController {
         
         cell.configureLabel(
             label: cell.titleLabel,
-            text: magazineInfo.magazine[indexPath.row].title,
-            textColor: .black,
-            textAlignment: .left,
-            fontSize: 17,
-            fontWeight: .bold
+            text: magazineInfo.magazine[indexPath.row].title
         )
         
         cell.configureLabel(
             label: cell.subtitleLabel,
-            text: magazineInfo.magazine[indexPath.row].subtitle,
-            textColor: .black,
-            textAlignment: .left,
-            fontSize: 13,
-            fontWeight: .regular
+            text: magazineInfo.magazine[indexPath.row].subtitle
         )
         
         cell.configureLabel(
             label: cell.dateLabel,
-            text: changedDateString,
-            textColor: .black,
-            textAlignment: .right,
-            fontSize: 13,
-            fontWeight: .regular
+            text: changedDateString
         )
         
 
         let url = URL(string: magazineInfo.magazine[indexPath.row].photo_image)
-        cell.travleImageView.kf.setImage(with: url)
-        cell.travleImageView.contentMode = .scaleAspectFill
-        cell.travleImageView.layer.cornerRadius = 10
+        cell.travelImageView.kf.setImage(with: url)
+        cell.travelImageView.contentMode = .scaleAspectFill
+        cell.travelImageView.layer.cornerRadius = 10
         
         return cell
     }

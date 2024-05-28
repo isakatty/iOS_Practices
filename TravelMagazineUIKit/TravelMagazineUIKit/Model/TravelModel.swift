@@ -14,6 +14,13 @@ struct Travel {
     var save: Int?
     var like: Bool?
     var ad: Bool
+    
+    var gradeDescription: String {
+        guard let grade = grade,
+              let save = save else { return "집계중" }
+        
+        return "(\(grade)) · 저장 " + save.formatted()
+    }
 }
 
 

@@ -10,6 +10,8 @@ import UIKit
 import Kingfisher
 
 class CityDetailTableViewCell: UITableViewCell {
+    
+    static let identifier: String = "CityDetailTableViewCell"
 
     @IBOutlet var cityNameLabel: UILabel!
     @IBOutlet var descriptionLabel: UILabel!
@@ -21,6 +23,16 @@ class CityDetailTableViewCell: UITableViewCell {
         super.awakeFromNib()
         
         configureUI()
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        
+        mainImgView.image = nil
+        
+        cityNameLabel.text = ""
+        descriptionLabel.text = ""
+        gradeLabel.text = ""
     }
     
     func configureUI() {
@@ -52,11 +64,7 @@ class CityDetailTableViewCell: UITableViewCell {
     func configureData(data: Travel, tag: Int) {
         cityNameLabel.text = data.title
         descriptionLabel.text = data.description
-        
-        guard let grade = data.grade,
-              let save = data.save else { return }
-        
-        gradeLabel.text = "(\(grade)) · 저장 " + save.formatted()
+        gradeLabel.text = data.gradeDescription
         
         guard let imgUrl = data.travel_image else { return }
         let url = URL(string: imgUrl)

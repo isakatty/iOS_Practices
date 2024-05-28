@@ -21,6 +21,7 @@ class FoodStoreTableViewController: UITableViewController {
         
         tableView.rowHeight = 190
         configureUI()
+        configureBaseView("음식점 리스트")
         
     }
     
@@ -61,7 +62,7 @@ class FoodStoreTableViewController: UITableViewController {
     ) -> UITableViewCell {
         
         guard let cell = tableView.dequeueReusableCell(
-            withIdentifier: "FoodStoreTableViewCell",
+            withIdentifier: FoodStoreTableViewCell.identifier,
             for: indexPath
         ) as? FoodStoreTableViewCell
         else { return UITableViewCell() }
@@ -72,42 +73,22 @@ class FoodStoreTableViewController: UITableViewController {
         
         let url = URL(string: data[indexPath.row].image)
         cell.storeImageView.kf.setImage(with: url)
-        cell.storeImageView.contentMode = .scaleToFill
-        cell.storeImageView.layer.cornerRadius = 10
-        cell.storeImageView.layer.borderWidth = 3
-        cell.storeImageView.layer.borderColor = UIColor.black.cgColor
         
         cell.configureLabel(
             label: cell.storeNameLabel,
-            text: data[indexPath.row].name,
-            textColor: .black,
-            textAlignment: .left,
-            fontSize: 17,
-            fontWeight: .bold
+            text: data[indexPath.row].name
         )
         cell.configureLabel(
             label: cell.storeAddressLabel,
-            text: data[indexPath.row].address,
-            textColor: .darkGray,
-            textAlignment: .left,
-            fontSize: 14,
-            fontWeight: .regular
+            text: data[indexPath.row].address
         )
         cell.configureLabel(
             label: cell.storeNumberLabel,
-            text: data[indexPath.row].phoneNumber,
-            textColor: .darkGray,
-            textAlignment: .left,
-            fontSize: 14,
-            fontWeight: .regular
+            text: data[indexPath.row].phoneNumber
         )
         cell.configureLabel(
             label: cell.foodCategoryLabel,
-            text: data[indexPath.row].category,
-            textColor: .darkGray,
-            textAlignment: .right,
-            fontSize: 14,
-            fontWeight: .regular
+            text: data[indexPath.row].category
         )
         
         
@@ -120,10 +101,6 @@ class FoodStoreTableViewController: UITableViewController {
                 UIImage(systemName: "heart"), for: .normal)
         }
         
-        cell.favoriteButton.setTitle(
-            "",
-            for: .normal
-        )
         cell.favoriteButton.addTarget(
             self,
             action: #selector(favoriteBtnTapped),
@@ -151,16 +128,9 @@ class FoodStoreTableViewController: UITableViewController {
                 for: .normal
             )
             
-            print("=======")
-            print("있다 : \(favoriteList)")
-            print("=======")
         } else {
             // X -> 배열 추가 및 이미지 변경
             favoriteList.append(data)
-            
-            print("=======")
-            print("없다 : \(favoriteList)")
-            print("=======")
             
             sender.setImage(
                 UIImage(systemName: "heart.fill"),
