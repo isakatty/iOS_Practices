@@ -50,29 +50,17 @@ class TravelMagazineTableViewController: UITableViewController {
         
         cell.configureLabel(
             label: cell.titleLabel,
-            text: magazineInfo.magazine[indexPath.row].title,
-            textColor: .black,
-            textAlignment: .left,
-            fontSize: 17,
-            fontWeight: .bold
+            text: magazineInfo.magazine[indexPath.row].title
         )
         
         cell.configureLabel(
             label: cell.subtitleLabel,
-            text: magazineInfo.magazine[indexPath.row].subtitle,
-            textColor: .black,
-            textAlignment: .left,
-            fontSize: 13,
-            fontWeight: .regular
+            text: magazineInfo.magazine[indexPath.row].subtitle
         )
         
         cell.configureLabel(
             label: cell.dateLabel,
-            text: changedDateString,
-            textColor: .black,
-            textAlignment: .right,
-            fontSize: 13,
-            fontWeight: .regular
+            text: changedDateString
         )
         
 

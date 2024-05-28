@@ -73,42 +73,22 @@ class FoodStoreTableViewController: UITableViewController {
         
         let url = URL(string: data[indexPath.row].image)
         cell.storeImageView.kf.setImage(with: url)
-        cell.storeImageView.contentMode = .scaleToFill
-        cell.storeImageView.layer.cornerRadius = 10
-        cell.storeImageView.layer.borderWidth = 3
-        cell.storeImageView.layer.borderColor = UIColor.black.cgColor
         
         cell.configureLabel(
             label: cell.storeNameLabel,
-            text: data[indexPath.row].name,
-            textColor: .black,
-            textAlignment: .left,
-            fontSize: 17,
-            fontWeight: .bold
+            text: data[indexPath.row].name
         )
         cell.configureLabel(
             label: cell.storeAddressLabel,
-            text: data[indexPath.row].address,
-            textColor: .darkGray,
-            textAlignment: .left,
-            fontSize: 14,
-            fontWeight: .regular
+            text: data[indexPath.row].address
         )
         cell.configureLabel(
             label: cell.storeNumberLabel,
-            text: data[indexPath.row].phoneNumber,
-            textColor: .darkGray,
-            textAlignment: .left,
-            fontSize: 14,
-            fontWeight: .regular
+            text: data[indexPath.row].phoneNumber
         )
         cell.configureLabel(
             label: cell.foodCategoryLabel,
-            text: data[indexPath.row].category,
-            textColor: .darkGray,
-            textAlignment: .right,
-            fontSize: 14,
-            fontWeight: .regular
+            text: data[indexPath.row].category
         )
         
         
@@ -121,10 +101,6 @@ class FoodStoreTableViewController: UITableViewController {
                 UIImage(systemName: "heart"), for: .normal)
         }
         
-        cell.favoriteButton.setTitle(
-            "",
-            for: .normal
-        )
         cell.favoriteButton.addTarget(
             self,
             action: #selector(favoriteBtnTapped),
