@@ -22,12 +22,12 @@ class CityDetailViewController
         cityTableView.delegate = self
         cityTableView.dataSource = self
         cityTableView.register(
-            UINib(nibName: "AdTableViewCell", bundle: nil),
-            forCellReuseIdentifier: "AdTableViewCell"
+            UINib(nibName: AdTableViewCell.identifier, bundle: nil),
+            forCellReuseIdentifier: AdTableViewCell.identifier
         )
         cityTableView.register(
-            UINib(nibName: "CityDetailTableViewCell", bundle: nil),
-            forCellReuseIdentifier: "CityDetailTableViewCell"
+            UINib(nibName: CityDetailTableViewCell.identifier, bundle: nil),
+            forCellReuseIdentifier: CityDetailTableViewCell.identifier
         )
     }
     
@@ -44,21 +44,21 @@ class CityDetailViewController
     ) -> UITableViewCell {
         if result[indexPath.row].ad {
             guard let cell = cityTableView.dequeueReusableCell(
-                withIdentifier: "AdTableViewCell",
+                withIdentifier: AdTableViewCell.identifier,
                 for: indexPath
             ) as? AdTableViewCell
             else { return UITableViewCell() }
             
             cell.configureData(data: result[indexPath.row])
             
-            var randomInt = Int.random(in: 0...7)
+            let randomInt = Int.random(in: 0...7)
             cell.backgroundColor = cell.color[randomInt]
             cell.alpha = 0.6
             
             return cell
         } else {
             guard let cell = cityTableView.dequeueReusableCell(
-                withIdentifier: "CityDetailTableViewCell",
+                withIdentifier: CityDetailTableViewCell.identifier,
                 for: indexPath
             ) as? CityDetailTableViewCell
             else { return UITableViewCell() }
