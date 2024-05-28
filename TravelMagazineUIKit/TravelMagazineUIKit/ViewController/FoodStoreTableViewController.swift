@@ -21,6 +21,7 @@ class FoodStoreTableViewController: UITableViewController {
         
         tableView.rowHeight = 190
         configureUI()
+        configureBaseView("음식점 리스트")
         
     }
     

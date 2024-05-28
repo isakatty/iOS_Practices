@@ -54,11 +54,7 @@ class CityDetailTableViewCell: UITableViewCell {
     func configureData(data: Travel, tag: Int) {
         cityNameLabel.text = data.title
         descriptionLabel.text = data.description
-        
-        guard let grade = data.grade,
-              let save = data.save else { return }
-        
-        gradeLabel.text = "(\(grade)) · 저장 " + save.formatted()
+        gradeLabel.text = data.gradeDescription
         
         guard let imgUrl = data.travel_image else { return }
         let url = URL(string: imgUrl)

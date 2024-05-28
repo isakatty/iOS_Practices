@@ -19,6 +19,7 @@ class CityDetailViewController
         result = list
         
         configureTableView()
+        configureBaseView("도시 유명 여행지")
     }
     
     func configureTableView() {

@@ -17,6 +17,7 @@ class TravelMagazineTableViewController: UITableViewController {
         super.viewDidLoad()
         
         tableView.rowHeight = 410
+        configureBaseView("Travel")
     }
     
     override func tableView(
