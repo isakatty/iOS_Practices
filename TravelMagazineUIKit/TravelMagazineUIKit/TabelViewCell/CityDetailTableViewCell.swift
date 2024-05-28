@@ -25,6 +25,16 @@ class CityDetailTableViewCell: UITableViewCell {
         configureUI()
     }
     
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        
+        mainImgView.image = nil
+        
+        cityNameLabel.text = ""
+        descriptionLabel.text = ""
+        gradeLabel.text = ""
+    }
+    
     func configureUI() {
         cityNameLabel.font = .systemFont(
             ofSize: 17,

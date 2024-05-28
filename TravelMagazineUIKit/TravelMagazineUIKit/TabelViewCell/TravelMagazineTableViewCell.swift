@@ -12,7 +12,7 @@ class TravelMagazineTableViewCell: UITableViewCell {
     // MARK: Properties
     static let identifier: String = "TravelMagazineTableViewCell"
     
-    @IBOutlet var travleImageView: UIImageView!
+    @IBOutlet var travelImageView: UIImageView!
     @IBOutlet var titleLabel: UILabel!
     @IBOutlet var subtitleLabel: UILabel!
     @IBOutlet var dateLabel: UILabel!
@@ -29,6 +29,15 @@ class TravelMagazineTableViewCell: UITableViewCell {
         titleLabel.font = .systemFont(ofSize: 17, weight: .bold)
         subtitleLabel.font = .systemFont(ofSize: 13, weight: .regular)
         dateLabel.font = .systemFont(ofSize: 13, weight: .regular)
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        
+        travelImageView.image = nil
+        titleLabel.text = ""
+        subtitleLabel.text = ""
+        dateLabel.text = ""
     }
     
     func configureLabel(

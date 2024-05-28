@@ -49,6 +49,15 @@ class FoodStoreTableViewCell: UITableViewCell {
         )
     }
     
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        
+        storeImageView.image = nil
+        storeNameLabel.text = ""
+        storeAddressLabel.text = ""
+        storeNumberLabel.text = ""
+        foodCategoryLabel.text = ""
+    }
     
     func configureLabel(
         label: UILabel,

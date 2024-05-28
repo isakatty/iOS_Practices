@@ -65,9 +65,9 @@ class TravelMagazineTableViewController: UITableViewController {
         
 
         let url = URL(string: magazineInfo.magazine[indexPath.row].photo_image)
-        cell.travleImageView.kf.setImage(with: url)
-        cell.travleImageView.contentMode = .scaleAspectFill
-        cell.travleImageView.layer.cornerRadius = 10
+        cell.travelImageView.kf.setImage(with: url)
+        cell.travelImageView.contentMode = .scaleAspectFill
+        cell.travelImageView.layer.cornerRadius = 10
         
         return cell
     }
