@@ -21,7 +21,6 @@
 		C990312D2C0359D8002542BD /* Restaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = C990312C2C0359D8002542BD /* Restaurant.swift */; };
 		C99031302C036414002542BD /* FoodStoreTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C990312F2C036414002542BD /* FoodStoreTableViewCell.swift */; };
 		C99031322C03643D002542BD /* FoodStoreTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C99031312C03643D002542BD /* FoodStoreTableViewController.swift */; };
-		C9EF34D12C04661D00FAE06A /* CityDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C9EF34D02C04661D00FAE06A /* CityDetail.storyboard */; };
 		C9EF34D42C04667100FAE06A /* CityDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9EF34D22C04667100FAE06A /* CityDetailTableViewCell.swift */; };
 		C9EF34D52C04667100FAE06A /* CityDetailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C9EF34D32C04667100FAE06A /* CityDetailTableViewCell.xib */; };
 		C9EF34D82C0468AB00FAE06A /* AdTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9EF34D62C0468AB00FAE06A /* AdTableViewCell.swift */; };
@@ -46,7 +45,6 @@
 		C990312C2C0359D8002542BD /* Restaurant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Restaurant.swift; sourceTree = "<group>"; };
 		C990312F2C036414002542BD /* FoodStoreTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodStoreTableViewCell.swift; sourceTree = "<group>"; };
 		C99031312C03643D002542BD /* FoodStoreTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodStoreTableViewController.swift; sourceTree = "<group>"; };
-		C9EF34D02C04661D00FAE06A /* CityDetail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CityDetail.storyboard; sourceTree = "<group>"; };
 		C9EF34D22C04667100FAE06A /* CityDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityDetailTableViewCell.swift; sourceTree = "<group>"; };
 		C9EF34D32C04667100FAE06A /* CityDetailTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CityDetailTableViewCell.xib; sourceTree = "<group>"; };
 		C9EF34D62C0468AB00FAE06A /* AdTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdTableViewCell.swift; sourceTree = "<group>"; };
@@ -144,7 +142,6 @@
 		C9EF34DC2C046A4900FAE06A /* storyboard */ = {
 			isa = PBXGroup;
 			children = (
-				C9EF34D02C04661D00FAE06A /* CityDetail.storyboard */,
 				C9EF34D32C04667100FAE06A /* CityDetailTableViewCell.xib */,
 				C9EF34D72C0468AB00FAE06A /* AdTableViewCell.xib */,
 			);
@@ -215,7 +212,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C9EF34D12C04661D00FAE06A /* CityDetail.storyboard in Resources */,
 				C9EF34D52C04667100FAE06A /* CityDetailTableViewCell.xib in Resources */,
 				C9EF34D92C0468AB00FAE06A /* AdTableViewCell.xib in Resources */,
 				C9588BF92C0322DD005D0EB7 /* Assets.xcassets in Resources */,
