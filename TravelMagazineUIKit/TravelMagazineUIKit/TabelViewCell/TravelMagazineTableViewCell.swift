@@ -10,6 +10,8 @@ import UIKit
 class TravelMagazineTableViewCell: UITableViewCell {
     
     // MARK: Properties
+    static let identifier: String = "TravelMagazineTableViewCell"
+    
     @IBOutlet var travleImageView: UIImageView!
     @IBOutlet var titleLabel: UILabel!
     @IBOutlet var subtitleLabel: UILabel!

@@ -18,9 +18,13 @@ class CityDetailViewController
         super.viewDidLoad()
         result = list
         
-        cityTableView.rowHeight = 140
+        configureTableView()
+    }
+    
+    func configureTableView() {
         cityTableView.delegate = self
         cityTableView.dataSource = self
+        cityTableView.rowHeight = 140
         cityTableView.register(
             UINib(nibName: AdTableViewCell.identifier, bundle: nil),
             forCellReuseIdentifier: AdTableViewCell.identifier

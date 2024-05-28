@@ -61,7 +61,7 @@ class FoodStoreTableViewController: UITableViewController {
     ) -> UITableViewCell {
         
         guard let cell = tableView.dequeueReusableCell(
-            withIdentifier: "FoodStoreTableViewCell",
+            withIdentifier: FoodStoreTableViewCell.identifier,
             for: indexPath
         ) as? FoodStoreTableViewCell
         else { return UITableViewCell() }

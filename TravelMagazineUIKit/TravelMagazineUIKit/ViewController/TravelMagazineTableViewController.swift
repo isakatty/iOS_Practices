@@ -39,7 +39,7 @@ class TravelMagazineTableViewController: UITableViewController {
         changedDateFormatter.dateFormat = "yy년 MM월 dd일"
         
         guard let cell = tableView.dequeueReusableCell(
-            withIdentifier: "TravelMagazineTableViewCell",
+            withIdentifier: TravelMagazineTableViewCell.identifier,
             for: indexPath
         ) as? TravelMagazineTableViewCell,
               let changedDate = dateFormatter.date(from: magazineInfo.magazine[indexPath.row].date)

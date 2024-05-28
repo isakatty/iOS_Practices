@@ -9,6 +9,7 @@ import UIKit
 
 class FoodStoreTableViewCell: UITableViewCell {
 
+    static let identifier: String = "FoodStoreTableViewCell"
     
     @IBOutlet var storeImageView: UIImageView!
     @IBOutlet var storeNameLabel: UILabel!
