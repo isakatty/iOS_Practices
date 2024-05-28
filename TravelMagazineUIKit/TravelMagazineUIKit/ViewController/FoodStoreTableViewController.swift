@@ -128,16 +128,9 @@ class FoodStoreTableViewController: UITableViewController {
                 for: .normal
             )
             
-            print("=======")
-            print("있다 : \(favoriteList)")
-            print("=======")
         } else {
             // X -> 배열 추가 및 이미지 변경
             favoriteList.append(data)
-            
-            print("=======")
-            print("없다 : \(favoriteList)")
-            print("=======")
             
             sender.setImage(
                 UIImage(systemName: "heart.fill"),
