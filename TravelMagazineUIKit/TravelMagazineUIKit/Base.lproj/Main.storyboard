@@ -90,14 +90,14 @@
             <point key="canvasLocation" x="-2" y="989"/>
         </scene>
         <!--CityDetail-->
-        <scene sceneID="DoG-bw-qcz">
+        <scene sceneID="mBI-rP-To1">
             <objects>
-                <viewControllerPlaceholder storyboardName="CityDetail" id="wqG-FW-mrD" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="ltf-pi-GJh"/>
+                <viewControllerPlaceholder storyboardIdentifier="CityDetail" storyboardName="CityDetail" id="iyR-1I-gR4" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="8ws-ft-6vy"/>
                 </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="gcN-i4-4XL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="umr-sL-YdU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="835" y="732"/>
+            <point key="canvasLocation" x="836" y="744"/>
         </scene>
         <!--Food Store Table View Controller-->
         <scene sceneID="hhV-oG-NEn">
@@ -260,7 +260,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="wqG-FW-mrD" kind="relationship" relationship="rootViewController" id="5sJ-cX-RCD"/>
+                        <segue destination="iyR-1I-gR4" kind="relationship" relationship="rootViewController" id="7pN-Vf-6QE"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="41c-ln-FEc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
