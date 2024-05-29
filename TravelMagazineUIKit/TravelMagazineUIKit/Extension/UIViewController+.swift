@@ -9,8 +9,8 @@ import UIKit
 
 extension UIViewController {
     func configureBaseView(
-        _ title: String
+        _ titleString: String
     ) {
-        navigationItem.title = title
+        navigationItem.title = titleString
     }
 }
