@@ -7,8 +7,7 @@
 
 import UIKit
 
-class CityDetailViewController
-: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class CityDetailViewController: UIViewController {
     let list = TravelInfo().travel
     var result = [Travel]()
     
@@ -36,6 +35,13 @@ class CityDetailViewController
         )
     }
     
+    @objc func favBtnTapped(sender: UIButton) {
+        result[sender.tag].like = !result[sender.tag].like!
+        cityTableView.reloadRows(at: [IndexPath(row: sender.tag, section: 0)], with: .automatic)
+    }
+}
+
+extension CityDetailViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(
         _ tableView: UITableView,
         numberOfRowsInSection section: Int
@@ -79,10 +85,5 @@ class CityDetailViewController
             return cell
         }
         
-    }
-    
-    @objc func favBtnTapped(sender: UIButton) {
-        result[sender.tag].like = !result[sender.tag].like!
-        cityTableView.reloadRows(at: [IndexPath(row: sender.tag, section: 0)], with: .automatic)
     }
 }
