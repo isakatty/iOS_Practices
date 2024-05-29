@@ -44,6 +44,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="segments" destination="V5L-4w-QTm" id="PRO-nN-SyE"/>
                         <outlet property="tableView" destination="CSm-Ni-5Gb" id="bcZ-q9-ba6"/>
                     </connections>
                 </viewController>

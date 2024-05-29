@@ -10,6 +10,8 @@ import UIKit
 /* TODO: 인기도시 TableView Cell 구성
  UIView - imgView + label 2개
     - UIView: 좌측 상단, 우측 하단 코너 값 주기
+           ✅ clipToBounds = true / cornerRadius 값 /
+              maskedCorners - CACornerMask <min,max X,Y>
               shadow
     - citySpotLabel: background color, text 흰색, font size, weight 고정
     - nameLabel: City의 name/eng_name 연산프로퍼티

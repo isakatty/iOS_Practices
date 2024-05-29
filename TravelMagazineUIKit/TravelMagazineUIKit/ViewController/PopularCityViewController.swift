@@ -9,15 +9,27 @@ import UIKit
 
 import Kingfisher
 
+/* TODO: SegmentedControl 찾아보기
+ - insertSegment : 더 추가하겠다 이름, 어디에, 애니메이션
+ 
+ 
+ */
+
 class PopularCityViewController: UIViewController {
 
     let cityList = CityInfo().city
-    
+    let segName: [String] = ["모두", "국내", "해외"]
     @IBOutlet var tableView: UITableView!
+    @IBOutlet var segments: UISegmentedControl!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        configureTableView()
+        configureSegmented()
+    }
+    
+    func configureTableView() {
         let xib = UINib(
             nibName: PopularCityTableViewCell.identifier,
             bundle: nil
@@ -30,7 +42,11 @@ class PopularCityViewController: UIViewController {
         tableView.dataSource = self
         tableView.delegate = self
         tableView.rowHeight = 140
-        
+    }
+    func configureSegmented() {
+        segments.setTitle(segName[0], forSegmentAt: 0)
+        segments.setTitle(segName[1], forSegmentAt: 1)
+        segments.setTitle(segName[2], forSegmentAt: 2)
     }
 
 }
