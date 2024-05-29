@@ -43,6 +43,9 @@
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="CSm-Ni-5Gb" secondAttribute="trailing" id="zss-TZ-q3G"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="CSm-Ni-5Gb" id="bcZ-q9-ba6"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

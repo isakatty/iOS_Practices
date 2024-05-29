@@ -13,7 +13,7 @@ struct City {
     let city_image: String
     let domestic_travel: Bool
     
-    var cityName: String {
+    var dualLangCityName: String {
         return city_name + " | " + city_english_name
     }
 }
