@@ -10,8 +10,7 @@ import UIKit
 import Kingfisher
 
 /* TODO: SegmentedControl 찾아보기
- - insertSegment : 더 추가하겠다 이름, 어디에, 애니메이션
- 
+ -
  
  */
 
@@ -19,12 +18,15 @@ class PopularCityViewController: UIViewController {
 
     let cityList = CityInfo().city
     let segName: [String] = ["모두", "국내", "해외"]
+    var filteredCity = [City]()
     @IBOutlet var tableView: UITableView!
     @IBOutlet var segments: UISegmentedControl!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        filteredCity = cityList
+        
         configureTableView()
         configureSegmented()
     }
@@ -48,7 +50,31 @@ class PopularCityViewController: UIViewController {
         segments.setTitle(segName[1], forSegmentAt: 1)
         segments.setTitle(segName[2], forSegmentAt: 2)
     }
-
+    
+    
+    @IBAction func segmentSelected(_ sender: UISegmentedControl) {
+        print(sender.selectedSegmentIndex)
+        
+        switch sender.selectedSegmentIndex {
+        case 0:
+            filteredCity = cityList
+            tableView.reloadData()
+        case 1:
+            filteredCity = cityList.filter({ city in
+                city.domestic_travel == true
+            })
+            tableView.reloadData()
+        case 2:
+            filteredCity = cityList.filter({ city in
+                city.domestic_travel == false
+            })
+            tableView.reloadData()
+        default:
+            break
+        }
+        
+    }
+    
 }
 
 extension PopularCityViewController
@@ -57,7 +83,7 @@ extension PopularCityViewController
         _ tableView: UITableView,
         numberOfRowsInSection section: Int
     ) -> Int {
-        return cityList.count
+        return filteredCity.count
     }
     func tableView(
         _ tableView: UITableView,
@@ -67,7 +93,7 @@ extension PopularCityViewController
             withIdentifier: PopularCityTableViewCell.identifier,
             for: indexPath
         ) as? PopularCityTableViewCell else { return UITableViewCell() }
-        let data = cityList[indexPath.row]
+        let data = filteredCity[indexPath.row]
         
         
         let url = URL(string: data.city_image)
