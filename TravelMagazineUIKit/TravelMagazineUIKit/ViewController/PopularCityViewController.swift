@@ -27,14 +27,18 @@ class PopularCityViewController: UIViewController {
     var filteredCity = [City]()
     @IBOutlet var tableView: UITableView!
     @IBOutlet var segments: UISegmentedControl!
+    @IBOutlet var searchBar: UISearchBar!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        navigationItem.title = "인기 도시"
+        
         filteredCity = cityList
         
         configureTableView()
         configureSegmented()
+        
+        hideKeyboard()
     }
     
     func configureTableView() {
@@ -84,6 +88,8 @@ class PopularCityViewController: UIViewController {
         }
         
     }
+    
+    
     
 }
 
