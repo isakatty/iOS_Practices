@@ -12,6 +12,5 @@ extension UIViewController {
         _ title: String
     ) {
         navigationItem.title = title
-        view.backgroundColor = .systemGray6
     }
 }
