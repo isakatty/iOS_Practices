@@ -10,7 +10,13 @@ import UIKit
 import Kingfisher
 
 /* TODO: SegmentedControl 찾아보기
- -
+ - segmentedControl -> title 설정
+    1. 배열 직접 대입
+    2. for-in문 통해서 대입
+        -> 배열의 index == seg의 index
+ - sender.selectedSegmentIndex 통해 각각의 seg에 접근
+    - switch case 문으로 index 분류 / 분류에 맞는 데이터 할당 / tableView.reload()
+    - 더 멋진 방법 없나 . . ?
  
  */
 
@@ -46,9 +52,13 @@ class PopularCityViewController: UIViewController {
         tableView.rowHeight = 140
     }
     func configureSegmented() {
-        segments.setTitle(segName[0], forSegmentAt: 0)
-        segments.setTitle(segName[1], forSegmentAt: 1)
-        segments.setTitle(segName[2], forSegmentAt: 2)
+//        segments.setTitle(segName[0], forSegmentAt: 0)
+//        segments.setTitle(segName[1], forSegmentAt: 1)
+//        segments.setTitle(segName[2], forSegmentAt: 2)
+        
+        for compo in segName.indices {
+            segments.setTitle(segName[compo], forSegmentAt: compo)
+        }
     }
     
     
