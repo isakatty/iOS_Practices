@@ -12,7 +12,7 @@
         <!--City Detail View Controller-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
-                <viewController id="Y6W-OH-hqX" customClass="CityDetailViewController" customModule="TravelMagazineUIKit" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CityDetail" id="Y6W-OH-hqX" customClass="CityDetailViewController" customModule="TravelMagazineUIKit" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -48,6 +48,36 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="332" y="32"/>
+        </scene>
+        <!--Advertisement View Controller-->
+        <scene sceneID="zRX-nK-gzA">
+            <objects>
+                <viewController storyboardIdentifier="AdvertisementViewController" id="djD-UL-Z9x" customClass="AdvertisementViewController" customModule="TravelMagazineUIKit" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="MXK-cH-AKP">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="Nlt-Kt-QAo"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8O4-KU-nOn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1442" y="539"/>
+        </scene>
+        <!--Tourist Spot View Controller-->
+        <scene sceneID="4IO-zc-J9H">
+            <objects>
+                <viewController storyboardIdentifier="TouristSpotViewController" id="5KD-CB-cKq" customClass="TouristSpotViewController" customModule="TravelMagazineUIKit" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="MXj-rZ-OjT">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="B1l-L7-QLw"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fvl-eG-vqV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1442" y="-232"/>
         </scene>
     </scenes>
     <resources>

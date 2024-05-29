@@ -7,8 +7,7 @@
 
 import UIKit
 
-class CityDetailViewController
-: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class CityDetailViewController: UIViewController {
     let list = TravelInfo().travel
     var result = [Travel]()
     
@@ -36,6 +35,13 @@ class CityDetailViewController
         )
     }
     
+    @objc func favBtnTapped(sender: UIButton) {
+        result[sender.tag].like = !result[sender.tag].like!
+        cityTableView.reloadRows(at: [IndexPath(row: sender.tag, section: 0)], with: .automatic)
+    }
+}
+
+extension CityDetailViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(
         _ tableView: UITableView,
         numberOfRowsInSection section: Int
@@ -80,9 +86,28 @@ class CityDetailViewController
         }
         
     }
-    
-    @objc func favBtnTapped(sender: UIButton) {
-        result[sender.tag].like = !result[sender.tag].like!
-        cityTableView.reloadRows(at: [IndexPath(row: sender.tag, section: 0)], with: .automatic)
+    func tableView(
+        _ tableView: UITableView,
+        didSelectRowAt indexPath: IndexPath
+    ) {
+        if result[indexPath.row].ad {
+            let sb = UIStoryboard(name: "CityDetail", bundle: nil)
+            let vc = sb.instantiateViewController(
+                withIdentifier: AdvertisementViewController.identifier
+            ) as! AdvertisementViewController
+            
+            let navi = UINavigationController(rootViewController: vc)
+            navi.modalPresentationStyle = .fullScreen
+            present(navi, animated: true)
+        } else {
+            let sb = UIStoryboard(name: "CityDetail", bundle: nil)
+            guard let vc = sb.instantiateViewController(
+                withIdentifier: TouristSpotViewController.identifier
+            ) as? TouristSpotViewController else { return }
+            
+            navigationController?.pushViewController(vc, animated: true)
+        }
+        
+        tableView.reloadRows(at: [indexPath], with: .automatic)
     }
 }
