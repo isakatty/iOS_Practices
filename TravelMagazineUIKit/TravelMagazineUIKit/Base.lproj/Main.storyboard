@@ -87,7 +87,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3gG-SX-cXu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2" y="989"/>
+            <point key="canvasLocation" x="-2" y="1119"/>
         </scene>
         <!--CityDetail-->
         <scene sceneID="mBI-rP-To1">
@@ -239,7 +239,17 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qud-3y-Lv6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1060" y="260"/>
+            <point key="canvasLocation" x="-1276" y="-435"/>
+        </scene>
+        <!--RestaurantMap-->
+        <scene sceneID="Hlj-5N-d40">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="RestaurantMap" storyboardName="RestaurantMap" id="3BK-Ty-tfm" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="9m9-Rm-GNt"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="z3r-Pu-uU7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-941" y="744"/>
         </scene>
         <!--Item-->
         <scene sceneID="W4f-1u-WKh">
@@ -258,7 +268,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SdA-zu-pOP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2" y="275"/>
+            <point key="canvasLocation" x="-2" y="345"/>
         </scene>
         <!--Item-->
         <scene sceneID="x8X-Sh-pnh">
@@ -275,7 +285,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="41c-ln-FEc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="837" y="275"/>
+            <point key="canvasLocation" x="836" y="344"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="PWp-nY-UP3">
@@ -291,6 +301,7 @@
                         <segue destination="l4i-2N-VeF" kind="relationship" relationship="viewControllers" id="ibu-Rq-t0a"/>
                         <segue destination="fzb-Jp-Mx7" kind="relationship" relationship="viewControllers" id="Q7D-hv-ayb"/>
                         <segue destination="rsR-P4-dBU" kind="relationship" relationship="viewControllers" id="ruG-HC-cbj"/>
+                        <segue destination="Ggb-11-L7p" kind="relationship" relationship="viewControllers" id="CWb-TW-ei5"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eF3-iL-5cp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -314,13 +325,33 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hJg-fg-kJ6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1761" y="275"/>
+            <point key="canvasLocation" x="1760" y="344"/>
+        </scene>
+        <!--Item-->
+        <scene sceneID="Dos-UO-s8r">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Ggb-11-L7p" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" image="storefront.fill" catalog="system" id="wBN-1L-hLU"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="kkC-9Y-9Vu">
+                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="3BK-Ty-tfm" kind="relationship" relationship="rootViewController" id="ctP-4w-UpA"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XWa-rV-QtP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-941" y="344"/>
         </scene>
     </scenes>
     <resources>
         <image name="airplane.departure" catalog="system" width="128" height="84"/>
         <image name="building.2.fill" catalog="system" width="128" height="117"/>
         <image name="cart.fill" catalog="system" width="128" height="102"/>
+        <image name="storefront.fill" catalog="system" width="128" height="116"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

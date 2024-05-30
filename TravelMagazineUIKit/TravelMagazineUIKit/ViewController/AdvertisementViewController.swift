@@ -10,6 +10,9 @@ import UIKit
 class AdvertisementViewController: UIViewController {
     static let identifier = "AdvertisementViewController"
     
+    var data: Travel?
+    @IBOutlet var adLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -21,10 +24,19 @@ class AdvertisementViewController: UIViewController {
             action: #selector(leftBarBtnTapped)
         )
         navigationItem.leftBarButtonItem?.tintColor = .black
+        
+        configureUI()
     }
     
     @objc func leftBarBtnTapped() {
         dismiss(animated: true)
+    }
+    
+    func configureUI() {
+        guard let data else { return }
+        adLabel.text = data.title
+        adLabel.textAlignment = .center
+        adLabel.textColor = .darkGray
     }
 
 }
