@@ -19,15 +19,19 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tIl-lq-kCD">
-                                <rect key="frame" x="0.0" y="130" width="393" height="688"/>
+                                <rect key="frame" x="0.0" y="116" width="393" height="702"/>
                                 <standardMapConfiguration key="preferredConfiguration"/>
                             </mapView>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="SSH-g2-9cu">
-                                <rect key="frame" x="30" y="89" width="333" height="32"/>
+                                <rect key="frame" x="30" y="75" width="333" height="32"/>
                                 <segments>
                                     <segment title="First"/>
                                     <segment title="Second"/>
+                                    <segment title=""/>
                                 </segments>
+                                <connections>
+                                    <action selector="segmentSelected:" destination="Y6W-OH-hqX" eventType="valueChanged" id="i8A-p9-qB0"/>
+                                </connections>
                             </segmentedControl>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
@@ -37,7 +41,7 @@
                             <constraint firstItem="tIl-lq-kCD" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="7wA-VC-Mc9"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="tIl-lq-kCD" secondAttribute="trailing" id="GDZ-vE-V6Y"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="SSH-g2-9cu" secondAttribute="trailing" constant="30" id="IDe-lD-Shu"/>
-                            <constraint firstItem="SSH-g2-9cu" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="30" id="RVi-Ej-znW"/>
+                            <constraint firstItem="SSH-g2-9cu" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="16" id="RVi-Ej-znW"/>
                             <constraint firstItem="tIl-lq-kCD" firstAttribute="top" secondItem="SSH-g2-9cu" secondAttribute="bottom" constant="10" id="ZYP-mv-9lo"/>
                             <constraint firstItem="SSH-g2-9cu" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="30" id="yL1-GX-1pE"/>
                         </constraints>

@@ -23,42 +23,96 @@ class RestaurantMapViewController: UIViewController {
     @IBOutlet var mapView: MKMapView!
     
     let restaurants = RestaurantList().restaurantArray
+    var filteredData = [Restaurant]()
     var annotations = [MKPointAnnotation]()
+    var foodCategory = [String]()
+    let segName: [String] = ["전체", "한식", "중식"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         navigationItem.title = "레스토랑 지도"
         
+        filteredData = restaurants
+        
+        configureMapView(stores: filteredData)
+        configureSeg()
+        
+        
+//        filterFoodCategoryName()
+    }
+    
+    
+    @IBAction func segmentSelected(_ sender: UISegmentedControl) {
+        switch sender.selectedSegmentIndex {
+        case 0:
+            filteredData = restaurants
+        case 1:
+            filteredData = restaurants.filter { res in
+                res.category == "한식"
+            }
+        case 2:
+            filteredData = restaurants.filter({ res in
+                res.category == "중식"
+            })
+        default:
+            filteredData = restaurants
+        }
+        
+        configureMapView(stores: filteredData)
+    }
+    
+    
+    func configureMapView(stores: [Restaurant]) {
+        mapView.removeAnnotations(mapView.annotations)
+        
         let coordinate = CLLocationCoordinate2D(
-            latitude: restaurants[0].latitude,
-            longitude: restaurants[0].longitude
+            latitude: restaurants[3].latitude,
+            longitude: restaurants[3].longitude
         )
         
         mapView.region = MKCoordinateRegion(
             center: coordinate,
-            latitudinalMeters: 5000,
+            latitudinalMeters: 1500,
             longitudinalMeters: 5000
         )
         
-        configureMapAnnotaion(stores: restaurants)
+        configureMapAnnotaion(stores: stores)
     }
-    
-    
+    func configureSeg() {
+//        for index in segName.indices {
+//            segments.setTitle(segName[index], forSegmentAt: index)
+//        }
+        for (index, str) in segName.enumerated() {
+            segments.setTitle(str, forSegmentAt: index)
+        }
+    }
     func configureMapAnnotaion(stores: [Restaurant]) {
+        annotations.removeAll()
         
-        // index를 돌면서 핀 만들기 
+        // index를 돌면서 핀 만들기
         for index in stores.indices {
             let annotation = MKPointAnnotation()
             annotation.coordinate = CLLocationCoordinate2D(
-                latitude: restaurants[index].latitude,
-                longitude: restaurants[index].longitude
+                latitude: stores[index].latitude,
+                longitude: stores[index].longitude
             )
-            annotation.title = restaurants[index].name
+            annotation.title = stores[index].name
             annotations.append(annotation)
         }
         
         mapView.addAnnotations(annotations)
     }
     
+    // MARK: 모든 카테고리를 segments로 표현하기엔 HIG에서 벗어남.
+    // 전체, 한식, 중식만
+    func filterFoodCategoryName() {
+        // restaurantArray의 category 가져다가 중복 제거
+        for (_, store) in restaurants.enumerated() {
+            foodCategory.append(store.category)
+        }
+        foodCategory = Array(Set(foodCategory))
+        
+    }
 }
+
