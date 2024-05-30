@@ -42,11 +42,8 @@ class TravelMagazineTableViewController: UITableViewController {
         guard let cell = tableView.dequeueReusableCell(
             withIdentifier: TravelMagazineTableViewCell.identifier,
             for: indexPath
-        ) as? TravelMagazineTableViewCell,
-              let changedDate = dateFormatter.date(from: magazineInfo.magazine[indexPath.row].date)
+        ) as? TravelMagazineTableViewCell
         else { return UITableViewCell() }
-        
-        let changedDateString = changedDateFormatter.string(from: changedDate)
         
         cell.configureLabel(
             label: cell.titleLabel,
@@ -60,7 +57,7 @@ class TravelMagazineTableViewController: UITableViewController {
         
         cell.configureLabel(
             label: cell.dateLabel,
-            text: changedDateString
+            text: magazineInfo.magazine[indexPath.row].dateStr
         )
         
 
@@ -72,6 +69,13 @@ class TravelMagazineTableViewController: UITableViewController {
         return cell
     }
     
+    override func tableView(
+        _ tableView: UITableView,
+        didSelectRowAt indexPath: IndexPath
+    ) {
+        print("??")
+        print("🩶" + magazineInfo.magazine[indexPath.row].dateStr)
+    }
     
 
 }
