@@ -17,6 +17,26 @@ import MapKit
     -> annotaion 추가
  3. segments 필터
  */
+
+enum FoodCategory: Int {
+    case all = 0
+    case korean
+    case chinese
+    
+    func filterRestaurants(stores: [Restaurant]) -> [Restaurant] {
+        switch self {
+        case .all:
+            return stores
+        case .korean:
+            return stores.filter { restaurant in
+                restaurant.category == "한식"
+            }
+        case .chinese:
+            return stores.filter { $0.category == "중식" }
+        }
+    }
+}
+
 class RestaurantMapViewController: UIViewController {
 
     @IBOutlet var segments: UISegmentedControl!
@@ -44,20 +64,25 @@ class RestaurantMapViewController: UIViewController {
     
     
     @IBAction func segmentSelected(_ sender: UISegmentedControl) {
-        switch sender.selectedSegmentIndex {
-        case 0:
-            filteredData = restaurants
-        case 1:
-            filteredData = restaurants.filter { res in
-                res.category == "한식"
-            }
-        case 2:
-            filteredData = restaurants.filter({ res in
-                res.category == "중식"
-            })
-        default:
-            filteredData = restaurants
-        }
+        
+        guard let selectedSeg = FoodCategory(rawValue: sender.selectedSegmentIndex) else { return }
+        
+        filteredData = selectedSeg.filterRestaurants(stores: restaurants)
+        
+//        switch sender.selectedSegmentIndex {
+//        case 0:
+//            filteredData = restaurants
+//        case 1:
+//            filteredData = restaurants.filter { res in
+//                res.category == "한식"
+//            }
+//        case 2:
+//            filteredData = restaurants.filter({ res in
+//                res.category == "중식"
+//            })
+//        default:
+//            filteredData = restaurants
+//        }
         
         configureMapView(stores: filteredData)
     }

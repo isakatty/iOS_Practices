@@ -19,6 +19,26 @@ import Kingfisher
     - 더 멋진 방법 없나 . . ?
  */
 
+enum Region: Int {
+    case all = 0
+    case domestic
+    case international
+    
+    func filterData(cityList: [City]) -> [City] {
+        switch self {
+        case .all:
+            return cityList
+        case .domestic:
+            return cityList.filter { city in
+                city.domestic_travel == true
+            }
+        case .international:
+            // 축약버전
+            return cityList.filter { $0.domestic_travel == false }
+        }
+    }
+}
+
 class PopularCityViewController: UIViewController {
 
     let cityList = CityInfo().city
@@ -74,23 +94,28 @@ class PopularCityViewController: UIViewController {
         print(sender.selectedSegmentIndex)
         
         // ⭐️ 열거형으로 처리해줘도 ?
-        switch sender.selectedSegmentIndex {
-        case 0:
-            filteredCity = cityList
-            tableView.reloadData()
-        case 1:
-            filteredCity = cityList.filter({ city in
-                city.domestic_travel == true
-            })
-            tableView.reloadData()
-        case 2:
-            filteredCity = cityList.filter({ city in
-                city.domestic_travel == false
-            })
-            tableView.reloadData()
-        default:
-            break
-        }
+//        switch sender.selectedSegmentIndex {
+//        case 0:
+//            filteredCity = cityList
+//        case 1:
+//            filteredCity = cityList.filter({ city in
+//                city.domestic_travel == true
+//            })
+//        case 2:
+//            filteredCity = cityList.filter({ city in
+//                city.domestic_travel == false
+//            })
+//        default:
+//            filteredCity = cityList
+//        }
+//        
+//        tableView.reloadData()
+        
+        // MARK: enum의 rawValue를 통해 가져온 값은 optional ?
+        // -> segmentIndex랑 enum의 rawValue 값이랑 매칭이 안될 수 있으니까 ?
+        guard let selected = Region(rawValue: sender.selectedSegmentIndex) else { return }
+        filteredCity = selected.filterData(cityList: cityList)
+        tableView.reloadData()
         
     }
     
