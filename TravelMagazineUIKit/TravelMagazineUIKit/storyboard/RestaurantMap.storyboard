@@ -13,7 +13,7 @@
         <!--Restaurant Map View Controller-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
-                <viewController storyboardIdentifier="RestaurantMapViewController" id="Y6W-OH-hqX" customClass="RestaurantMapViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="RestaurantMapViewController" id="Y6W-OH-hqX" customClass="RestaurantMapViewController" customModule="TravelMagazineUIKit" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -42,6 +42,10 @@
                             <constraint firstItem="SSH-g2-9cu" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="30" id="yL1-GX-1pE"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="mapView" destination="tIl-lq-kCD" id="5C5-Vk-SxK"/>
+                        <outlet property="segments" destination="SSH-g2-9cu" id="wo3-Wu-C8a"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

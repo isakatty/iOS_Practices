@@ -241,10 +241,10 @@
             </objects>
             <point key="canvasLocation" x="-1276" y="-435"/>
         </scene>
-        <!--Storyboard Reference-->
+        <!--RestaurantMap-->
         <scene sceneID="Hlj-5N-d40">
             <objects>
-                <viewControllerPlaceholder id="3BK-Ty-tfm" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardIdentifier="RestaurantMap" storyboardName="RestaurantMap" id="3BK-Ty-tfm" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="9m9-Rm-GNt"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="z3r-Pu-uU7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -331,7 +331,7 @@
         <scene sceneID="Dos-UO-s8r">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Ggb-11-L7p" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="wBN-1L-hLU"/>
+                    <tabBarItem key="tabBarItem" title="Item" image="storefront.fill" catalog="system" id="wBN-1L-hLU"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="kkC-9Y-9Vu">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
@@ -351,6 +351,7 @@
         <image name="airplane.departure" catalog="system" width="128" height="84"/>
         <image name="building.2.fill" catalog="system" width="128" height="117"/>
         <image name="cart.fill" catalog="system" width="128" height="102"/>
+        <image name="storefront.fill" catalog="system" width="128" height="116"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
