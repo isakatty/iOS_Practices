@@ -92,9 +92,12 @@ extension CityDetailViewController: UITableViewDelegate, UITableViewDataSource {
     ) {
         if result[indexPath.row].ad {
             let sb = UIStoryboard(name: "CityDetail", bundle: nil)
-            let vc = sb.instantiateViewController(
+            
+            guard let vc = sb.instantiateViewController(
                 withIdentifier: AdvertisementViewController.identifier
-            ) as! AdvertisementViewController
+            ) as? AdvertisementViewController else { return }
+            
+            vc.data = result[indexPath.row]
             
             let navi = UINavigationController(rootViewController: vc)
             navi.modalPresentationStyle = .fullScreen
@@ -104,6 +107,8 @@ extension CityDetailViewController: UITableViewDelegate, UITableViewDataSource {
             guard let vc = sb.instantiateViewController(
                 withIdentifier: TouristSpotViewController.identifier
             ) as? TouristSpotViewController else { return }
+            
+            vc.data = result[indexPath.row]
             
             navigationController?.pushViewController(vc, animated: true)
         }

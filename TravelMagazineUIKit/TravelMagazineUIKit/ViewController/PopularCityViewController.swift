@@ -73,6 +73,7 @@ class PopularCityViewController: UIViewController {
     @IBAction func segmentSelected(_ sender: UISegmentedControl) {
         print(sender.selectedSegmentIndex)
         
+        // ⭐️ 열거형으로 처리해줘도 ?
         switch sender.selectedSegmentIndex {
         case 0:
             filteredCity = cityList
