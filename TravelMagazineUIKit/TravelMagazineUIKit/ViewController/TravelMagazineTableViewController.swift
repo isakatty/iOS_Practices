@@ -11,7 +11,7 @@ import Kingfisher
 
 class TravelMagazineTableViewController: UITableViewController {
 
-    let magazineInfo = MagazineInfo()
+    let magazineInfo = MagazineInfo().magazine
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,14 +24,13 @@ class TravelMagazineTableViewController: UITableViewController {
         _ tableView: UITableView,
         numberOfRowsInSection section: Int
     ) -> Int {
-        return magazineInfo.magazine.count
+        return magazineInfo.count
     }
     
     override func tableView(
         _ tableView: UITableView,
         cellForRowAt indexPath: IndexPath
     ) -> UITableViewCell {
-        
         
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyMMdd"
@@ -42,29 +41,26 @@ class TravelMagazineTableViewController: UITableViewController {
         guard let cell = tableView.dequeueReusableCell(
             withIdentifier: TravelMagazineTableViewCell.identifier,
             for: indexPath
-        ) as? TravelMagazineTableViewCell,
-              let changedDate = dateFormatter.date(from: magazineInfo.magazine[indexPath.row].date)
+        ) as? TravelMagazineTableViewCell
         else { return UITableViewCell() }
-        
-        let changedDateString = changedDateFormatter.string(from: changedDate)
         
         cell.configureLabel(
             label: cell.titleLabel,
-            text: magazineInfo.magazine[indexPath.row].title
+            text: magazineInfo[indexPath.row].title
         )
         
         cell.configureLabel(
             label: cell.subtitleLabel,
-            text: magazineInfo.magazine[indexPath.row].subtitle
+            text: magazineInfo[indexPath.row].subtitle
         )
         
         cell.configureLabel(
             label: cell.dateLabel,
-            text: changedDateString
+            text: magazineInfo[indexPath.row].stringToFormat
         )
         
 
-        let url = URL(string: magazineInfo.magazine[indexPath.row].photo_image)
+        let url = URL(string: magazineInfo[indexPath.row].photo_image)
         cell.travelImageView.kf.setImage(with: url)
         cell.travelImageView.contentMode = .scaleAspectFill
         cell.travelImageView.layer.cornerRadius = 10
