@@ -7,8 +7,7 @@
 
 import UIKit
 
-import Kingfisher
-
+/// 첫번째 탭
 class TravelMagazineTableViewController: UITableViewController {
 
     let magazineInfo = MagazineInfo().magazine
@@ -31,37 +30,15 @@ class TravelMagazineTableViewController: UITableViewController {
         _ tableView: UITableView,
         cellForRowAt indexPath: IndexPath
     ) -> UITableViewCell {
-        
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyMMdd"
-        
-        let changedDateFormatter = DateFormatter()
-        changedDateFormatter.dateFormat = "yy년 MM월 dd일"
-        
         guard let cell = tableView.dequeueReusableCell(
             withIdentifier: TravelMagazineTableViewCell.identifier,
             for: indexPath
         ) as? TravelMagazineTableViewCell
         else { return UITableViewCell() }
         
-        cell.configureLabel(
-            label: cell.titleLabel,
-            text: magazineInfo[indexPath.row].title
-        )
+        let magazineCellInfo = magazineInfo[indexPath.row]
         
-        cell.configureLabel(
-            label: cell.subtitleLabel,
-            text: magazineInfo[indexPath.row].subtitle
-        )
-        
-        cell.configureLabel(
-            label: cell.dateLabel,
-            text: magazineInfo[indexPath.row].stringToFormattedDate
-        )
-        
-        cell.travelImageView.kf.setImage(with: magazineInfo[indexPath.row].linkToURL)
-        cell.travelImageView.contentMode = .scaleAspectFill
-        cell.travelImageView.layer.cornerRadius = 10
+        cell.configureCell(magazineInfo: magazineCellInfo)
         
         return cell
     }

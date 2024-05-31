@@ -21,7 +21,7 @@ import MapKit
         남아있을 수 있기 때문에 명시적으로 지우고 다시 추가해주어야한다 ? ?
  */
 
-enum FoodCategory: Int {
+enum FoodCategory: Int { // rawValue를 string 값으로 변경해서 적용하는것
     case all = 0
     case korean
     case chinese

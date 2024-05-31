@@ -65,4 +65,18 @@ class PopularCityTableViewCell: UITableViewCell {
         label.font = .systemFont(ofSize: fontSize, weight: fontWeight)
     }
     
+    /* 접근제어
+     internal: 기본값, 생략 가능
+     private: 선언된 파일 내부에서만 사용 가능
+     public: 모듈 상관 없이 사용 가능
+     */
+    internal func configureCell(city: City) {
+        cityImageView.kf.setImage(
+            with: city.imageURL,
+            placeholder: UIImage(systemName: "heart")
+        )
+        cityNameLabel.text = city.dualLangCityName
+        citySpotLabel.text = city.city_explain
+    }
+    
 }

@@ -139,14 +139,9 @@ extension PopularCityViewController
             withIdentifier: PopularCityTableViewCell.identifier,
             for: indexPath
         ) as? PopularCityTableViewCell else { return UITableViewCell() }
-        let data = filteredCity[indexPath.row]
+        let cityInfo = filteredCity[indexPath.row]
         
-        cell.cityImageView.kf.setImage(
-            with: data.imageURL,
-            placeholder: UIImage(systemName: "heart")
-        )
-        cell.cityNameLabel.text = data.dualLangCityName
-        cell.citySpotLabel.text = data.city_explain
+        cell.configureCell(city: cityInfo)
         return cell
     }
     

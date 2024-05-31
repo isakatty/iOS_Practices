@@ -7,6 +7,8 @@
 
 import UIKit
 
+import Kingfisher
+
 class TravelMagazineTableViewCell: UITableViewCell {
     
     // MARK: Properties
@@ -28,7 +30,6 @@ class TravelMagazineTableViewCell: UITableViewCell {
         subtitleLabel.font = .systemFont(ofSize: 13, weight: .regular)
         dateLabel.font = .systemFont(ofSize: 13, weight: .regular)
     }
-    
     override func prepareForReuse() {
         super.prepareForReuse()
         
@@ -44,6 +45,27 @@ class TravelMagazineTableViewCell: UITableViewCell {
     ) {
         label.numberOfLines = .zero
         label.text = text
+    }
+    
+    func configureCell(magazineInfo: Magazine) {
+        configureLabel(
+            label: titleLabel,
+            text: magazineInfo.title
+        )
+        
+        configureLabel(
+            label: subtitleLabel,
+            text: magazineInfo.subtitle
+        )
+        
+        configureLabel(
+            label: dateLabel,
+            text: magazineInfo.stringToFormattedDate
+        )
+        
+        travelImageView.kf.setImage(with: magazineInfo.linkToURL)
+        travelImageView.contentMode = .scaleAspectFill
+        travelImageView.layer.cornerRadius = 10
     }
     
 }
