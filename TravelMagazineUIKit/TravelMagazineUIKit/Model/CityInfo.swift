@@ -16,6 +16,11 @@ struct City {
     var dualLangCityName: String {
         return city_name + " | " + city_english_name
     }
+    
+    var imageURL: URL? {
+        let url = URL(string: city_image)
+        return url
+    }
 }
  
 struct CityInfo {

@@ -56,18 +56,13 @@ class TravelMagazineTableViewController: UITableViewController {
         
         cell.configureLabel(
             label: cell.dateLabel,
-            text: magazineInfo[indexPath.row].stringToFormat
+            text: magazineInfo[indexPath.row].stringToFormattedDate
         )
         
-
-        let url = URL(string: magazineInfo[indexPath.row].photo_image)
-        cell.travelImageView.kf.setImage(with: url)
+        cell.travelImageView.kf.setImage(with: magazineInfo[indexPath.row].linkToURL)
         cell.travelImageView.contentMode = .scaleAspectFill
         cell.travelImageView.layer.cornerRadius = 10
         
         return cell
     }
-    
-    
-
 }

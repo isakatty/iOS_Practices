@@ -21,6 +21,14 @@ struct Travel {
         
         return "(\(grade)) · 저장 " + save.formatted()
     }
+    var imageURL: URL? {
+        if let travel_image {
+            let url = URL(string: travel_image)
+            return url
+        }
+        return URL(string: "https://picsum.photos/200/300")
+    }
+    
 }
 
 

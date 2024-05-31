@@ -14,7 +14,7 @@ struct Magazine {
     let date: String
     let link: String
     
-    var stringToFormat: String {
+    var stringToFormattedDate: String {
         let stringToDateFormatter = DateFormatter()
         stringToDateFormatter.dateFormat = "yyMMdd"
         guard let stringDate = stringToDateFormatter.date(from: date) else { return date}
@@ -24,5 +24,10 @@ struct Magazine {
         let changedDate = dateToStringFormatter.string(from: stringDate)
         
         return changedDate
+    }
+    
+    var linkToURL: URL? {
+        let url = URL(string: photo_image)
+        return url
     }
 }
