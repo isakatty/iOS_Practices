@@ -82,28 +82,10 @@ class RestaurantMapViewController: UIViewController {
         
         filteredData = selectedSeg.filterRestaurants(stores: restaurants)
         
-//        switch sender.selectedSegmentIndex {
-//        case 0:
-//            filteredData = restaurants
-//        case 1:
-//            filteredData = restaurants.filter { res in
-//                res.category == "한식"
-//            }
-//        case 2:
-//            filteredData = restaurants.filter({ res in
-//                res.category == "중식"
-//            })
-//        default:
-//            filteredData = restaurants
-//        }
-        
         configureMapAnnotaion(stores: filteredData)
     }
     
     func configureSeg() {
-//        for index in segName.indices {
-//            segments.setTitle(segName[index], forSegmentAt: index)
-//        }
         for (index, str) in segName.enumerated() {
             segments.setTitle(str, forSegmentAt: index)
         }
@@ -114,17 +96,6 @@ class RestaurantMapViewController: UIViewController {
         
         // 2. 생성한 annotions 배열 빈배열 만들기
         annotations.removeAll()
-        
-        // index를 돌면서 핀 만들기
-//        for index in stores.indices {
-//            let annotation = MKPointAnnotation()
-//            annotation.coordinate = CLLocationCoordinate2D(
-//                latitude: stores[index].latitude,
-//                longitude: stores[index].longitude
-//            )
-//            annotation.title = stores[index].name
-//            annotations.append(annotation)
-//        }
         
         for (_, store) in stores.enumerated() {
             let annotation = MKPointAnnotation()

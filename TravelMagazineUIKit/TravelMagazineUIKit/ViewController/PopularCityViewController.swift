@@ -76,10 +76,6 @@ class PopularCityViewController: UIViewController {
         tableView.rowHeight = 140
     }
     func configureSegmented() {
-//        segments.setTitle(segName[0], forSegmentAt: 0)
-//        segments.setTitle(segName[1], forSegmentAt: 1)
-//        segments.setTitle(segName[2], forSegmentAt: 2)
-        
         for compo in segName.indices {
             segments.setTitle(segName[compo], forSegmentAt: compo)
         }
@@ -94,22 +90,6 @@ class PopularCityViewController: UIViewController {
         print(sender.selectedSegmentIndex)
         
         // ⭐️ 열거형으로 처리해줘도 ?
-//        switch sender.selectedSegmentIndex {
-//        case 0:
-//            filteredCity = cityList
-//        case 1:
-//            filteredCity = cityList.filter({ city in
-//                city.domestic_travel == true
-//            })
-//        case 2:
-//            filteredCity = cityList.filter({ city in
-//                city.domestic_travel == false
-//            })
-//        default:
-//            filteredCity = cityList
-//        }
-//        
-//        tableView.reloadData()
         
         // MARK: enum의 rawValue를 통해 가져온 값은 optional ?
         // -> segmentIndex랑 enum의 rawValue 값이랑 매칭이 안될 수 있으니까 ?
