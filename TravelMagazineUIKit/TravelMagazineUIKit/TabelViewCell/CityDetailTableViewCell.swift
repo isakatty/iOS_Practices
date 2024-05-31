@@ -10,9 +10,6 @@ import UIKit
 import Kingfisher
 
 class CityDetailTableViewCell: UITableViewCell {
-    
-    static let identifier: String = "CityDetailTableViewCell"
-
     @IBOutlet var cityNameLabel: UILabel!
     @IBOutlet var descriptionLabel: UILabel!
     @IBOutlet var gradeLabel: UILabel!

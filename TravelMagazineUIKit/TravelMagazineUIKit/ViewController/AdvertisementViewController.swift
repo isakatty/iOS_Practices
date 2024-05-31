@@ -8,8 +8,6 @@
 import UIKit
 
 class AdvertisementViewController: UIViewController {
-    static let identifier = "AdvertisementViewController"
-    
     var data: Travel?
     @IBOutlet var adLabel: UILabel!
     

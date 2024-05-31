@@ -20,8 +20,6 @@ import UIKit
 class PopularCityTableViewCell: UITableViewCell {
     
     // MARK: - properties
-    static let identifier = "PopularCityTableViewCell"
-    
     @IBOutlet var bgView: UIView!
     @IBOutlet var cityImageView: UIImageView!
     @IBOutlet var cityNameLabel: UILabel!
