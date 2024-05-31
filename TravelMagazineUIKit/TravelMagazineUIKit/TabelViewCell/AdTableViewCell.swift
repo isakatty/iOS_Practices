@@ -42,4 +42,10 @@ class AdTableViewCell: UITableViewCell {
         adLabel.text = data.title
     }
     
+    func configureBgColor() {
+        let randomInt = Int.random(in: 0...7)
+        self.backgroundColor = color[randomInt]
+        self.alpha = 0.6
+    }
+    
 }

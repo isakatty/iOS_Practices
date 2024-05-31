@@ -43,7 +43,16 @@ class PopularCityViewController: UIViewController {
 
     let cityList = CityInfo().city
     let segName: [String] = ["모두", "국내", "해외"]
-    var filteredCity = [City]()
+    var cnt = 0
+    // 빈배열을 선언해주고, viewDidLoad되면서 값을 넣어줘서 활용하는 것과 애초에 기본 데이터를 넣어놓고 활용하는 것의 차이가 있나 ?
+    // 효율성보다는 데이터가 들어가는 시점
+    // 효율성 -> 연산이 들어가는 것.
+    var filteredCity = [City]() { // 생성할 때는 이벤트 X
+        didSet {
+            tableView.reloadData()
+        }
+    }
+    
     @IBOutlet var tableView: UITableView!
     @IBOutlet var segments: UISegmentedControl!
     @IBOutlet var searchBar: UISearchBar!
@@ -95,7 +104,6 @@ class PopularCityViewController: UIViewController {
         // -> segmentIndex랑 enum의 rawValue 값이랑 매칭이 안될 수 있으니까 ?
         guard let selected = Region(rawValue: sender.selectedSegmentIndex) else { return }
         filteredCity = selected.filterData(cityList: cityList)
-        tableView.reloadData()
         
     }
     
@@ -116,11 +124,7 @@ extension PopularCityViewController: UISearchBarDelegate {
         
         filteredCity = cityList.filter({ $0.city_name.contains(text) || $0.city_english_name.contains(text) || $0.city_explain.contains(text)
         })
-        
-        tableView.reloadData()
     }
-    
-    
 }
 
 extension PopularCityViewController

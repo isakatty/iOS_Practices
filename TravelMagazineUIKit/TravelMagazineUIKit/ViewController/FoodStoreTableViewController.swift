@@ -10,8 +10,16 @@ import UIKit
 class FoodStoreTableViewController: UITableViewController {
     
     let restaurant = RestaurantList()
-    var favoriteList = [Restaurant]()
-    var searchedList = [Restaurant]()
+    var favoriteList = [Restaurant]() {
+        didSet {
+            tableView.reloadData()
+        }
+    }
+    var searchedList = [Restaurant]() {
+        didSet {
+            tableView.reloadData()
+        }
+    }
     var isSearching: Bool = false
     
     @IBOutlet var searchTextField: UITextField!
@@ -35,7 +43,6 @@ class FoodStoreTableViewController: UITableViewController {
                 res.category.contains(text)
             })
             
-            tableView.reloadData()
         }
     }
     
