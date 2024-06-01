@@ -30,6 +30,9 @@ class ChatDetailViewController: UIViewController {
         chatTableView.delegate = self
         chatTableView.dataSource = self
         
+        chatTableView.allowsSelection = false
+        chatTableView.separatorStyle = .none
+        
         let leftXib = UINib(
             nibName: ChatDetailToTableViewCell.identifier,
             bundle: nil
