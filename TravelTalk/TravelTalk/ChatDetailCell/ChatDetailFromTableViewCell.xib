@@ -18,7 +18,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZL5-xe-fZU">
-                        <rect key="frame" x="32" y="92" width="70" height="17"/>
+                        <rect key="frame" x="218.66666666666666" y="92" width="69.999999999999972" height="17"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="17" id="7In-Gw-7Ra"/>
                             <constraint firstAttribute="width" constant="70" id="lxX-SQ-Mi7"/>
@@ -28,7 +28,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OFg-h5-g8E">
-                        <rect key="frame" x="118" y="8" width="228" height="101"/>
+                        <rect key="frame" x="304.66666666666669" y="8" width="41.333333333333314" height="101"/>
                         <color key="backgroundColor" red="0.96611279250000004" green="0.41644143909999998" blue="0.32974916770000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="4kb-DZ-jiU"/>
@@ -44,7 +44,7 @@
                     <constraint firstItem="OFg-h5-g8E" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="Cm7-gR-nnU"/>
                     <constraint firstAttribute="bottom" secondItem="ZL5-xe-fZU" secondAttribute="bottom" constant="8" id="gUd-i9-a45"/>
                     <constraint firstAttribute="bottom" secondItem="OFg-h5-g8E" secondAttribute="bottom" constant="8" id="oI9-ur-rNe"/>
-                    <constraint firstItem="ZL5-xe-fZU" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="32" id="tKN-Xc-coe"/>
+                    <constraint firstItem="ZL5-xe-fZU" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="32" id="tKN-Xc-coe"/>
                     <constraint firstItem="OFg-h5-g8E" firstAttribute="leading" secondItem="ZL5-xe-fZU" secondAttribute="trailing" constant="16" id="xdb-O4-cZI"/>
                 </constraints>
             </tableViewCellContentView>

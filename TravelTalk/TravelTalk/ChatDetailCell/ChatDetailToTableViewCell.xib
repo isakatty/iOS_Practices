@@ -34,7 +34,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oDd-wI-uCZ">
-                        <rect key="frame" x="62" y="33" width="171" height="73"/>
+                        <rect key="frame" x="62" y="33" width="41.333333333333343" height="73"/>
                         <color key="backgroundColor" red="0.96611279250000004" green="0.41644143909999998" blue="0.32974916770000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="20" id="9Ze-uW-YOJ"/>
@@ -45,7 +45,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nmp-V3-4Uf">
-                        <rect key="frame" x="249" y="86" width="80" height="20"/>
+                        <rect key="frame" x="119.33333333333331" y="86" width="80" height="20"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="20" id="IoC-HL-DqH"/>
                             <constraint firstAttribute="width" constant="80" id="aIH-It-8jv"/>
@@ -65,7 +65,7 @@
                     <constraint firstAttribute="bottom" secondItem="nmp-V3-4Uf" secondAttribute="bottom" constant="10" id="ctG-Ne-NOC"/>
                     <constraint firstItem="PQr-f6-0QL" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="f8S-bP-oMx"/>
                     <constraint firstItem="nmp-V3-4Uf" firstAttribute="leading" secondItem="oDd-wI-uCZ" secondAttribute="trailing" constant="16" id="fXG-hs-M18"/>
-                    <constraint firstAttribute="trailing" secondItem="nmp-V3-4Uf" secondAttribute="trailing" constant="8" id="gwh-Po-tuz"/>
+                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="nmp-V3-4Uf" secondAttribute="trailing" constant="8" id="gwh-Po-tuz"/>
                     <constraint firstItem="Ct6-8k-Jq7" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="oJy-EB-XTR"/>
                 </constraints>
             </tableViewCellContentView>

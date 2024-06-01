@@ -15,6 +15,8 @@ class TravelTalkViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        navigationItem.title = "TRAVEL TALK"
+        
         configureTableView()
     }
     
@@ -63,10 +65,15 @@ extension TravelTalkViewController
         didSelectRowAt indexPath: IndexPath
     ) {
         let sb = UIStoryboard(name: "ChatDetail", bundle: nil)
-        guard let vc = sb.instantiateViewController(withIdentifier: ChatDetailViewController.identifier) as? ChatDetailViewController else { return }
+        guard let vc = sb.instantiateViewController(
+            withIdentifier: ChatDetailViewController.identifier
+        ) as? ChatDetailViewController else { return }
         
         vc.chatting = chatList[indexPath.row].chatList
+        vc.chatroomName = chatList[indexPath.row].chatroomName
+        
         navigationController?.pushViewController(vc, animated: true)
         
+        tableView.reloadRows(at: [indexPath], with: .automatic)
     }
 }

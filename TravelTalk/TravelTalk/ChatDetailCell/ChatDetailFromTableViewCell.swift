@@ -17,10 +17,12 @@ class ChatDetailFromTableViewCell: UITableViewCell {
         
         msgLabel.layer.cornerRadius = 5
         msgLabel.layer.borderWidth = 1
-        msgLabel.layer.borderColor = UIColor.systemGray3.cgColor
+        msgLabel.layer.borderColor = UIColor.systemGray2.cgColor
         msgLabel.clipsToBounds = true
         msgLabel.layer.maskedCorners = [.layerMaxXMaxYCorner, .layerMaxXMinYCorner, .layerMinXMaxYCorner, .layerMinXMinYCorner]
         msgLabel.numberOfLines = .zero
+        
+        dateLabel.textAlignment = .right
         
         awakeLabel(label: msgLabel, fontSize: 15, fontColor: .black, labelBgColor: .systemGray3)
         awakeLabel(label: dateLabel, fontSize: 13, fontColor: .lightGray, labelBgColor: nil)

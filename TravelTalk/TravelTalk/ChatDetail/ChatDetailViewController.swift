@@ -15,11 +15,15 @@ class ChatDetailViewController: UIViewController {
     @IBOutlet var sendBtn: UIButton!
     
     var chatting: [Chat]?
+    var chatroomName: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         configureTableView()
+        
+        guard let chatroomName else { return }
+        navigationItem.title = chatroomName
     }
     
     func configureTableView() {
