@@ -49,6 +49,19 @@ struct Chat {
         
         return dateToString
     }
+    var timeDate: String {
+        let nowDateFormat = DateFormatter()
+        nowDateFormat.dateFormat = "yyyy-MM-dd HH:mm"
+        let timeDateFormat = DateFormatter()
+        timeDateFormat.dateFormat = "MM-dd hh:mm a"
+        timeDateFormat.locale = Locale(identifier: "ko_KR")
+        
+        guard let stringToDate = nowDateFormat.date(from: date) else { return date }
+        
+        let dateToString = timeDateFormat.string(from: stringToDate)
+        
+        return dateToString
+    }
 }
 
 

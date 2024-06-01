@@ -47,7 +47,7 @@ extension TravelTalkViewController
         _ tableView: UITableView,
         cellForRowAt indexPath: IndexPath
     ) -> UITableViewCell {
-        guard let cell = chatListTableView.dequeueReusableCell(
+        guard let cell = tableView.dequeueReusableCell(
             withIdentifier: ChatListTableViewCell.identifier,
             for: indexPath
         ) as? ChatListTableViewCell

@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Chat Detail View Controller-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController storyboardIdentifier="ChatDetailViewController" id="Y6W-OH-hqX" customClass="ChatDetailViewController" customModule="TravelTalk" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="lAd-Ej-44Q">
+                                <rect key="frame" x="0.0" y="59" width="393" height="727"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sY2-1A-oH2">
+                                <rect key="frame" x="32" y="786" width="329" height="32"/>
+                                <subviews>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="TqD-ma-lIA">
+                                        <rect key="frame" x="4" y="2" width="273" height="28"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                        <color key="textColor" systemColor="labelColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a0x-5y-qwj">
+                                        <rect key="frame" x="293" y="2" width="28" height="28"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="a0x-5y-qwj" secondAttribute="height" id="sKX-N6-eJf"/>
+                                        </constraints>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" image="paperplane" catalog="system"/>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemYellowColor"/>
+                                <constraints>
+                                    <constraint firstItem="a0x-5y-qwj" firstAttribute="leading" secondItem="TqD-ma-lIA" secondAttribute="trailing" constant="16" id="96L-JW-aJi"/>
+                                    <constraint firstAttribute="height" constant="32" id="ABg-Jk-ybD"/>
+                                    <constraint firstAttribute="trailing" secondItem="a0x-5y-qwj" secondAttribute="trailing" constant="8" id="Wk5-6c-4Ll"/>
+                                    <constraint firstItem="TqD-ma-lIA" firstAttribute="leading" secondItem="sY2-1A-oH2" secondAttribute="leading" constant="4" id="bwP-nD-PVn"/>
+                                    <constraint firstItem="TqD-ma-lIA" firstAttribute="centerY" secondItem="sY2-1A-oH2" secondAttribute="centerY" id="dX1-7g-FtL"/>
+                                    <constraint firstAttribute="bottom" secondItem="a0x-5y-qwj" secondAttribute="bottom" constant="2" id="etq-ke-FP3"/>
+                                    <constraint firstAttribute="bottom" secondItem="TqD-ma-lIA" secondAttribute="bottom" constant="2" id="gHc-6w-aVg"/>
+                                    <constraint firstItem="TqD-ma-lIA" firstAttribute="top" secondItem="sY2-1A-oH2" secondAttribute="top" constant="2" id="smc-Zb-shn"/>
+                                    <constraint firstItem="a0x-5y-qwj" firstAttribute="top" secondItem="sY2-1A-oH2" secondAttribute="top" constant="2" id="w1g-4u-BBS"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="lAd-Ej-44Q" secondAttribute="trailing" id="BO3-zy-FqR"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="sY2-1A-oH2" secondAttribute="trailing" constant="32" id="Rvu-F9-xKe"/>
+                            <constraint firstItem="sY2-1A-oH2" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="32" id="YKX-6I-8f9"/>
+                            <constraint firstItem="lAd-Ej-44Q" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="fgj-qT-b3j"/>
+                            <constraint firstItem="lAd-Ej-44Q" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="gpa-Wb-V2o"/>
+                            <constraint firstItem="sY2-1A-oH2" firstAttribute="top" secondItem="lAd-Ej-44Q" secondAttribute="bottom" id="m4l-gf-zOK"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="sY2-1A-oH2" secondAttribute="bottom" id="xj4-iA-jTd"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="bgView" destination="sY2-1A-oH2" id="yRr-Fm-UuP"/>
+                        <outlet property="chatTableView" destination="lAd-Ej-44Q" id="PXG-9k-bip"/>
+                        <outlet property="sendBtn" destination="a0x-5y-qwj" id="VOR-n0-5oE"/>
+                        <outlet property="textView" destination="TqD-ma-lIA" id="blW-oK-NCP"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-57.251908396946561" y="27.464788732394368"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="paperplane" catalog="system" width="128" height="119"/>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemYellowColor">
+            <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>
