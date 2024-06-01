@@ -71,18 +71,19 @@ extension ChatDetailViewController
             ) as? ChatDetailFromTableViewCell
             else { return UITableViewCell() }
             
+            cell.configureCell(msg: chatting[indexPath.row])
             
             return cell
         } else {
             guard let cell = tableView.dequeueReusableCell(
-                withIdentifier: ChatDetailFromTableViewCell.identifier,
+                withIdentifier: ChatDetailToTableViewCell.identifier,
                 for: indexPath
-            ) as? ChatDetailFromTableViewCell
+            ) as? ChatDetailToTableViewCell
             else { return UITableViewCell() }
             
+            cell.configureCell(msg: chatting[indexPath.row])
             
             return cell
-            
         }
         
     }

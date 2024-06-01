@@ -18,20 +18,21 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZL5-xe-fZU">
-                        <rect key="frame" x="32" y="92" width="50" height="17"/>
+                        <rect key="frame" x="32" y="92" width="70" height="17"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="17" id="7In-Gw-7Ra"/>
-                            <constraint firstAttribute="width" constant="50" id="lxX-SQ-Mi7"/>
+                            <constraint firstAttribute="width" constant="70" id="lxX-SQ-Mi7"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OFg-h5-g8E">
-                        <rect key="frame" x="98" y="8" width="248" height="101"/>
+                        <rect key="frame" x="118" y="8" width="228" height="101"/>
                         <color key="backgroundColor" red="0.96611279250000004" green="0.41644143909999998" blue="0.32974916770000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="4kb-DZ-jiU"/>
+                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="30" id="Sua-Ne-Q9q"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>

@@ -15,12 +15,15 @@ class ChatDetailFromTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        msgLabel.layer.cornerRadius = 10
+        msgLabel.layer.cornerRadius = 5
         msgLabel.layer.borderWidth = 1
-        msgLabel.layer.borderColor = UIColor.black.cgColor
+        msgLabel.layer.borderColor = UIColor.systemGray3.cgColor
+        msgLabel.clipsToBounds = true
+        msgLabel.layer.maskedCorners = [.layerMaxXMaxYCorner, .layerMaxXMinYCorner, .layerMinXMaxYCorner, .layerMinXMinYCorner]
+        msgLabel.numberOfLines = .zero
         
-        awakeLabel(label: msgLabel, fontSize: 15, labelBgColor: .white)
-        awakeLabel(label: dateLabel, fontSize: 15, labelBgColor: .systemGray4)
+        awakeLabel(label: msgLabel, fontSize: 15, fontColor: .black, labelBgColor: .systemGray3)
+        awakeLabel(label: dateLabel, fontSize: 13, fontColor: .lightGray, labelBgColor: nil)
     }
 
     override func prepareForReuse() {
@@ -39,9 +42,11 @@ class ChatDetailFromTableViewCell: UITableViewCell {
     private func awakeLabel(
         label: UILabel,
         fontSize: CGFloat,
-        labelBgColor: UIColor
+        fontColor: UIColor?,
+        labelBgColor: UIColor?
     ) {
         label.font = .systemFont(ofSize: fontSize)
         label.backgroundColor = labelBgColor
+        label.textColor = fontColor
     }
 }

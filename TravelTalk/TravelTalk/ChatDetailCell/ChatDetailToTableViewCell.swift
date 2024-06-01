@@ -17,12 +17,14 @@ class ChatDetailToTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        profileImageview.contentMode = .scaleToFill
+        profileImageview.contentMode = .scaleAspectFit
+        nicknameLabel.font = .boldSystemFont(ofSize: 17)
         
-        msgLabel.layer.cornerRadius = 10
+        msgLabel.layer.cornerRadius = 5
         msgLabel.layer.borderWidth = 1
-        msgLabel.layer.borderColor = UIColor.black.cgColor
+        msgLabel.layer.borderColor = UIColor.lightGray.cgColor
         msgLabel.backgroundColor = .white
+        msgLabel.numberOfLines = .zero
         
         awakeLabel(label: msgLabel, fontSize: 15, fontColor: .black)
         awakeLabel(label: dateLabel, fontSize: 13, fontColor: .lightGray)
