@@ -43,7 +43,16 @@ class PopularCityViewController: UIViewController {
 
     let cityList = CityInfo().city
     let segName: [String] = ["모두", "국내", "해외"]
-    var filteredCity = [City]()
+    var cnt = 0
+    // 빈배열을 선언해주고, viewDidLoad되면서 값을 넣어줘서 활용하는 것과 애초에 기본 데이터를 넣어놓고 활용하는 것의 차이가 있나 ?
+    // 효율성보다는 데이터가 들어가는 시점
+    // 효율성 -> 연산이 들어가는 것.
+    var filteredCity = [City]() { // 생성할 때는 이벤트 X
+        didSet {
+            tableView.reloadData()
+        }
+    }
+    
     @IBOutlet var tableView: UITableView!
     @IBOutlet var segments: UISegmentedControl!
     @IBOutlet var searchBar: UISearchBar!
@@ -76,10 +85,6 @@ class PopularCityViewController: UIViewController {
         tableView.rowHeight = 140
     }
     func configureSegmented() {
-//        segments.setTitle(segName[0], forSegmentAt: 0)
-//        segments.setTitle(segName[1], forSegmentAt: 1)
-//        segments.setTitle(segName[2], forSegmentAt: 2)
-        
         for compo in segName.indices {
             segments.setTitle(segName[compo], forSegmentAt: compo)
         }
@@ -94,28 +99,11 @@ class PopularCityViewController: UIViewController {
         print(sender.selectedSegmentIndex)
         
         // ⭐️ 열거형으로 처리해줘도 ?
-//        switch sender.selectedSegmentIndex {
-//        case 0:
-//            filteredCity = cityList
-//        case 1:
-//            filteredCity = cityList.filter({ city in
-//                city.domestic_travel == true
-//            })
-//        case 2:
-//            filteredCity = cityList.filter({ city in
-//                city.domestic_travel == false
-//            })
-//        default:
-//            filteredCity = cityList
-//        }
-//        
-//        tableView.reloadData()
         
         // MARK: enum의 rawValue를 통해 가져온 값은 optional ?
         // -> segmentIndex랑 enum의 rawValue 값이랑 매칭이 안될 수 있으니까 ?
         guard let selected = Region(rawValue: sender.selectedSegmentIndex) else { return }
         filteredCity = selected.filterData(cityList: cityList)
-        tableView.reloadData()
         
     }
     
@@ -136,11 +124,7 @@ extension PopularCityViewController: UISearchBarDelegate {
         
         filteredCity = cityList.filter({ $0.city_name.contains(text) || $0.city_english_name.contains(text) || $0.city_explain.contains(text)
         })
-        
-        tableView.reloadData()
     }
-    
-    
 }
 
 extension PopularCityViewController
@@ -159,15 +143,9 @@ extension PopularCityViewController
             withIdentifier: PopularCityTableViewCell.identifier,
             for: indexPath
         ) as? PopularCityTableViewCell else { return UITableViewCell() }
-        let data = filteredCity[indexPath.row]
+        let cityInfo = filteredCity[indexPath.row]
         
-        
-        let url = URL(string: data.city_image)
-        cell.cityImageView.kf.setImage(with: url, placeholder: UIImage(systemName: "heart"))
-        
-        cell.cityNameLabel.text = data.dualLangCityName
-        cell.citySpotLabel.text = data.city_explain
-        
+        cell.configureCell(city: cityInfo)
         return cell
     }
     

@@ -18,6 +18,12 @@ struct Restaurant {
     let category: String
     let price: Int
     let type: Int
+    
+    var imageURL: URL? {
+        let url = URL(string: image)
+        return url
+    }
+    
 }
 
 struct RestaurantList {

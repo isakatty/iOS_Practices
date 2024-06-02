@@ -8,9 +8,6 @@
 import UIKit
 
 class AdTableViewCell: UITableViewCell {
-    
-    static let identifier: String = "AdTableViewCell"
-    
     @IBOutlet var adLabel: UILabel!
     @IBOutlet var literalAdLabel: UILabel!
     
@@ -43,6 +40,12 @@ class AdTableViewCell: UITableViewCell {
     
     func configureData(data: Travel) {
         adLabel.text = data.title
+    }
+    
+    func configureBgColor() {
+        let randomInt = Int.random(in: 0...7)
+        self.backgroundColor = color[randomInt]
+        self.alpha = 0.6
     }
     
 }

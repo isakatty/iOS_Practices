@@ -61,10 +61,7 @@ extension CityDetailViewController: UITableViewDelegate, UITableViewDataSource {
             else { return UITableViewCell() }
             
             cell.configureData(data: result[indexPath.row])
-            
-            let randomInt = Int.random(in: 0...7)
-            cell.backgroundColor = cell.color[randomInt]
-            cell.alpha = 0.6
+            cell.configureBgColor()
             
             return cell
         } else {
@@ -90,14 +87,16 @@ extension CityDetailViewController: UITableViewDelegate, UITableViewDataSource {
         _ tableView: UITableView,
         didSelectRowAt indexPath: IndexPath
     ) {
-        if result[indexPath.row].ad {
+        let travelData = result[indexPath.row]
+        
+        if travelData.ad {
             let sb = UIStoryboard(name: "CityDetail", bundle: nil)
             
             guard let vc = sb.instantiateViewController(
                 withIdentifier: AdvertisementViewController.identifier
             ) as? AdvertisementViewController else { return }
             
-            vc.data = result[indexPath.row]
+            vc.data = travelData
             
             let navi = UINavigationController(rootViewController: vc)
             navi.modalPresentationStyle = .fullScreen
@@ -108,11 +107,12 @@ extension CityDetailViewController: UITableViewDelegate, UITableViewDataSource {
                 withIdentifier: TouristSpotViewController.identifier
             ) as? TouristSpotViewController else { return }
             
-            vc.data = result[indexPath.row]
+            vc.data = travelData
             
             navigationController?.pushViewController(vc, animated: true)
         }
         
+        // cell 선택시 cell 하이라이트 되돌리기 위함.
         tableView.reloadRows(at: [indexPath], with: .automatic)
     }
 }

@@ -109,7 +109,7 @@
             </objects>
             <point key="canvasLocation" x="1760" y="744"/>
         </scene>
-        <!--Food Store Table View Controller-->
+        <!--Item-->
         <scene sceneID="hhV-oG-NEn">
             <objects>
                 <tableViewController id="f0J-6a-PMA" customClass="FoodStoreTableViewController" customModule="TravelMagazineUIKit" customModuleProvider="target" sceneMemberID="viewController">
@@ -233,13 +233,14 @@
                             <outlet property="delegate" destination="f0J-6a-PMA" id="OrC-0J-dnW"/>
                         </connections>
                     </tableView>
+                    <tabBarItem key="tabBarItem" title="Item" id="8MD-mq-86i"/>
                     <connections>
                         <outlet property="searchTextField" destination="ZQR-7R-ltQ" id="eLw-0Y-SdS"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qud-3y-Lv6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1276" y="-435"/>
+            <point key="canvasLocation" x="-1789" y="344"/>
         </scene>
         <!--RestaurantMap-->
         <scene sceneID="Hlj-5N-d40">
@@ -302,6 +303,7 @@
                         <segue destination="fzb-Jp-Mx7" kind="relationship" relationship="viewControllers" id="Q7D-hv-ayb"/>
                         <segue destination="rsR-P4-dBU" kind="relationship" relationship="viewControllers" id="ruG-HC-cbj"/>
                         <segue destination="Ggb-11-L7p" kind="relationship" relationship="viewControllers" id="CWb-TW-ei5"/>
+                        <segue destination="f0J-6a-PMA" kind="relationship" relationship="viewControllers" id="MgE-dc-xQz"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eF3-iL-5cp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

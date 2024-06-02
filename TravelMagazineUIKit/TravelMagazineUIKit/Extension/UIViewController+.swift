@@ -7,7 +7,11 @@
 
 import UIKit
 
-extension UIViewController {
+extension UIViewController: ReuseIdentifier {
+    static var identifier: String {
+        return String(describing: self)
+    }
+    
     func configureBaseView(
         _ titleString: String
     ) {

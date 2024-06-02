@@ -10,8 +10,16 @@ import UIKit
 class FoodStoreTableViewController: UITableViewController {
     
     let restaurant = RestaurantList()
-    var favoriteList = [Restaurant]()
-    var searchedList = [Restaurant]()
+    var favoriteList = [Restaurant]() {
+        didSet {
+            tableView.reloadData()
+        }
+    }
+    var searchedList = [Restaurant]() {
+        didSet {
+            tableView.reloadData()
+        }
+    }
     var isSearching: Bool = false
     
     @IBOutlet var searchTextField: UITextField!
@@ -35,7 +43,6 @@ class FoodStoreTableViewController: UITableViewController {
                 res.category.contains(text)
             })
             
-            tableView.reloadData()
         }
     }
     
@@ -71,9 +78,7 @@ class FoodStoreTableViewController: UITableViewController {
         ? searchedList
         : restaurant.restaurantArray
         
-        let url = URL(string: data[indexPath.row].image)
-        cell.storeImageView.kf.setImage(with: url)
-        
+        cell.storeImageView.kf.setImage(with: data[indexPath.row].imageURL)
         cell.configureLabel(
             label: cell.storeNameLabel,
             text: data[indexPath.row].name
@@ -95,10 +100,15 @@ class FoodStoreTableViewController: UITableViewController {
         if favoriteList.firstIndex(where: { res in
             res.name == data[indexPath.row].name
         }) != nil {
-            cell.favoriteButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+            cell.favoriteButton.setImage(
+                UIImage(systemName: "heart.fill"),
+                for: .normal
+            )
         } else {
             cell.favoriteButton.setImage(
-                UIImage(systemName: "heart"), for: .normal)
+                UIImage(systemName: "heart"), 
+                for: .normal
+            )
         }
         
         cell.favoriteButton.addTarget(

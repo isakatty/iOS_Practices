@@ -10,8 +10,6 @@ import UIKit
 import Kingfisher
 
 class TouristSpotViewController: UIViewController {
-
-    static let identifier = "TouristSpotViewController"
     var data: Travel?
     
     @IBOutlet var cityImageView: UIImageView!

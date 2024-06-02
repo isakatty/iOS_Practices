@@ -7,11 +7,10 @@
 
 import UIKit
 
-import Kingfisher
-
+/// 첫번째 탭
 class TravelMagazineTableViewController: UITableViewController {
 
-    let magazineInfo = MagazineInfo()
+    let magazineInfo = MagazineInfo().magazine
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,54 +23,23 @@ class TravelMagazineTableViewController: UITableViewController {
         _ tableView: UITableView,
         numberOfRowsInSection section: Int
     ) -> Int {
-        return magazineInfo.magazine.count
+        return magazineInfo.count
     }
     
     override func tableView(
         _ tableView: UITableView,
         cellForRowAt indexPath: IndexPath
     ) -> UITableViewCell {
-        
-        
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyMMdd"
-        
-        let changedDateFormatter = DateFormatter()
-        changedDateFormatter.dateFormat = "yy년 MM월 dd일"
-        
         guard let cell = tableView.dequeueReusableCell(
             withIdentifier: TravelMagazineTableViewCell.identifier,
             for: indexPath
-        ) as? TravelMagazineTableViewCell,
-              let changedDate = dateFormatter.date(from: magazineInfo.magazine[indexPath.row].date)
+        ) as? TravelMagazineTableViewCell
         else { return UITableViewCell() }
         
-        let changedDateString = changedDateFormatter.string(from: changedDate)
+        let magazineCellInfo = magazineInfo[indexPath.row]
         
-        cell.configureLabel(
-            label: cell.titleLabel,
-            text: magazineInfo.magazine[indexPath.row].title
-        )
-        
-        cell.configureLabel(
-            label: cell.subtitleLabel,
-            text: magazineInfo.magazine[indexPath.row].subtitle
-        )
-        
-        cell.configureLabel(
-            label: cell.dateLabel,
-            text: changedDateString
-        )
-        
-
-        let url = URL(string: magazineInfo.magazine[indexPath.row].photo_image)
-        cell.travelImageView.kf.setImage(with: url)
-        cell.travelImageView.contentMode = .scaleAspectFill
-        cell.travelImageView.layer.cornerRadius = 10
+        cell.configureCell(magazineInfo: magazineCellInfo)
         
         return cell
     }
-    
-    
-
 }
