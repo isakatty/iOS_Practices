@@ -46,6 +46,7 @@
                     </view>
                     <connections>
                         <outlet property="chatListTableView" destination="eN5-vP-UkX" id="jHh-Uq-Zbn"/>
+                        <outlet property="searchBar" destination="WXg-oC-b1B" id="wC4-NP-Wi9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

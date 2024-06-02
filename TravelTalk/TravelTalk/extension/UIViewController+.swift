@@ -11,4 +11,16 @@ extension UIViewController: ReuseIdentifier {
     static var identifier: String {
         return String(describing: self)
     }
+    
+    func hideKeyboard() {
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(
+            target: self,
+            action: #selector(self.dismissKeyboard)
+        )
+        view.addGestureRecognizer(tap)
+    }
+    
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
+    }
 }

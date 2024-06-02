@@ -26,6 +26,16 @@ class ChatDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        configureNavigationBar()
+        hideKeyboard()
+        
+        guard let chatting else { return }
+        realtimeChat = chatting
+        
+        configureTableView()
+        configureTextSendView()
+    }
+    func configureNavigationBar() {
         navigationItem.leftBarButtonItem = UIBarButtonItem(
             image: UIImage(systemName: "chevron.backward"),
             style: .plain,
@@ -36,14 +46,7 @@ class ChatDetailViewController: UIViewController {
         
         guard let chatroomName else { return }
         navigationItem.title = chatroomName
-        
-        guard let chatting else { return }
-        realtimeChat = chatting
-        
-        configureTableView()
-        configureTextSendView()
     }
-    
     func configureTableView() {
         chatTableView.delegate = self
         chatTableView.dataSource = self
