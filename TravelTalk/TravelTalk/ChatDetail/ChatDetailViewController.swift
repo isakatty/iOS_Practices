@@ -26,6 +26,13 @@ class ChatDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationItem.leftBarButtonItem = UIBarButtonItem(
+            image: UIImage(systemName: "chevron.backward"),
+            style: .plain,
+            target: self,
+            action: #selector(backBtnTapped)
+        )
+        navigationItem.leftBarButtonItem?.tintColor = UIColor.darkGray
         
         guard let chatroomName else { return }
         navigationItem.title = chatroomName
@@ -35,14 +42,6 @@ class ChatDetailViewController: UIViewController {
         
         configureTableView()
         configureTextSendView()
-        
-//        if chatTableView.bounds.height > UIScreen().bounds.height {
-//            let endIndex = IndexPath(
-//                row: realtimeChat.count - 2,
-//                section: 0
-//            )
-//            chatTableView.scrollToRow(at: endIndex, at: .bottom, animated: true)
-//        }
     }
     
     func configureTableView() {
@@ -103,6 +102,9 @@ class ChatDetailViewController: UIViewController {
             realtimeChat.append(myChat)
             textView.text = nil
         }
+    }
+    @objc func backBtnTapped() {
+        navigationController?.popViewController(animated: true)
     }
     
 }
