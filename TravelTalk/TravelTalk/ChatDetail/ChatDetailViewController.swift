@@ -8,22 +8,41 @@
 import UIKit
 
 class ChatDetailViewController: UIViewController {
-
+    
     @IBOutlet var chatTableView: UITableView!
     @IBOutlet var bgView: UIView!
     @IBOutlet var textView: UITextView!
     @IBOutlet var sendBtn: UIButton!
     
     var chatting: [Chat]?
+    var realtimeChat = [Chat]() {
+        didSet {
+            chatTableView.reloadData()
+            chatting = realtimeChat
+        }
+    }
     var chatroomName: String?
+    let placeholder: String = "메세지를 입력하세요"
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        configureTableView()
-        
         guard let chatroomName else { return }
         navigationItem.title = chatroomName
+        
+        guard let chatting else { return }
+        realtimeChat = chatting
+        
+        configureTableView()
+        configureTextSendView()
+        
+//        if chatTableView.bounds.height > UIScreen().bounds.height {
+//            let endIndex = IndexPath(
+//                row: realtimeChat.count - 2,
+//                section: 0
+//            )
+//            chatTableView.scrollToRow(at: endIndex, at: .bottom, animated: true)
+//        }
     }
     
     func configureTableView() {
@@ -32,6 +51,7 @@ class ChatDetailViewController: UIViewController {
         
         chatTableView.allowsSelection = false
         chatTableView.separatorStyle = .none
+        
         
         let leftXib = UINib(
             nibName: ChatDetailToTableViewCell.identifier,
@@ -50,6 +70,56 @@ class ChatDetailViewController: UIViewController {
             rightXib,
             forCellReuseIdentifier: ChatDetailFromTableViewCell.identifier
         )
+        
+    }
+    func configureTextSendView() {
+        bgView.backgroundColor = .systemGray5
+        bgView.layer.cornerRadius = 10
+        
+        sendBtn.setTitle("", for: .normal)
+        sendBtn.setImage(UIImage(systemName: "paperplane"), for: .normal)
+        sendBtn.tintColor = .systemGray4
+        sendBtn.addTarget(
+            self,
+            action: #selector(sendBtnTapped),
+            for: .touchUpInside
+        )
+        
+        textView.backgroundColor = .systemGray5
+        textView.text = placeholder
+        textView.textColor = .lightGray
+        
+        textView.delegate = self
+    }
+    
+    @objc func sendBtnTapped() {
+        if !textView.text.isEmpty || textView.text == placeholder {
+            let myChat = Chat(
+                user: .user,
+                date: "2024-06-13 06:14",
+                message: textView.text
+            )
+            
+            realtimeChat.append(myChat)
+            textView.text = nil
+        }
+    }
+    
+}
+
+extension ChatDetailViewController: UITextViewDelegate {
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        if textView.textColor == UIColor.lightGray {
+            textView.text = nil
+            textView.textColor = .black
+        }
+    }
+    
+    func textViewDidEndEditing(_ textView: UITextView) {
+        if textView.text.isEmpty {
+            textView.text = placeholder
+            textView.textColor = .lightGray
+        }
     }
 }
 
@@ -59,26 +129,21 @@ extension ChatDetailViewController
         _ tableView: UITableView,
         numberOfRowsInSection section: Int
     ) -> Int {
-        guard let chatting else { return 0 }
-        return chatting.count
+        return realtimeChat.count
     }
     
     func tableView(
         _ tableView: UITableView,
         cellForRowAt indexPath: IndexPath
     ) -> UITableViewCell {
-        // chatting의 user에 따라 cell 달라짐
-        
-        guard let chatting else { return UITableViewCell() }
-        
-        if chatting[indexPath.row].user == .user {
+        if realtimeChat[indexPath.row].user == .user {
             guard let cell = tableView.dequeueReusableCell(
                 withIdentifier: ChatDetailFromTableViewCell.identifier,
                 for: indexPath
             ) as? ChatDetailFromTableViewCell
             else { return UITableViewCell() }
             
-            cell.configureCell(msg: chatting[indexPath.row])
+            cell.configureCell(msg: realtimeChat[indexPath.row])
             
             return cell
         } else {
@@ -88,7 +153,7 @@ extension ChatDetailViewController
             ) as? ChatDetailToTableViewCell
             else { return UITableViewCell() }
             
-            cell.configureCell(msg: chatting[indexPath.row])
+            cell.configureCell(msg: realtimeChat[indexPath.row])
             
             return cell
         }
