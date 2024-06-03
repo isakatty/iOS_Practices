@@ -141,6 +141,10 @@ extension ChatDetailViewController
         _ tableView: UITableView,
         cellForRowAt indexPath: IndexPath
     ) -> UITableViewCell {
+        // while
+        
+        
+        
         if realtimeChat[indexPath.row].user == .user {
             guard let cell = tableView.dequeueReusableCell(
                 withIdentifier: ChatDetailFromTableViewCell.identifier,
@@ -149,6 +153,12 @@ extension ChatDetailViewController
             else { return UITableViewCell() }
             
             cell.configureCell(msg: realtimeChat[indexPath.row])
+            
+            if realtimeChat.startIndex != indexPath.row {
+                let result2 = realtimeChat[indexPath.row].changedDate.dateCompare(fromDate: realtimeChat[indexPath.row - 1].changedDate)
+                print("❓", result2)
+                cell.configureHideDate(hide: result2)
+            }
             
             return cell
         } else {

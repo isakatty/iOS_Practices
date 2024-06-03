@@ -13,9 +13,11 @@ class ChatDetailFromTableViewCell: UITableViewCell {
     @IBOutlet var dateLabel: UILabel!
     @IBOutlet var msgBgView: UIView!
     
+    @IBOutlet var separateDateBgView: UIView!
+    @IBOutlet var separateDateLabel: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        
         
         msgLabel.numberOfLines = .zero
         msgBgView.backgroundColor = .systemBackground
@@ -27,6 +29,12 @@ class ChatDetailFromTableViewCell: UITableViewCell {
         
         awakeLabel(label: msgLabel, fontSize: 15, fontColor: .black, labelBgColor: nil)
         awakeLabel(label: dateLabel, fontSize: 13, fontColor: .lightGray, labelBgColor: nil)
+        
+        awakeLabel(label: separateDateLabel, fontSize: 10, fontColor: .lightGray, labelBgColor: nil)
+        separateDateLabel.textAlignment = .center
+        
+        separateDateBgView.backgroundColor = .systemGray6
+        separateDateBgView.layer.cornerRadius = 10
     }
 
     override func prepareForReuse() {
@@ -40,6 +48,16 @@ class ChatDetailFromTableViewCell: UITableViewCell {
     ) {
         msgLabel.text = msg.message
         dateLabel.text = msg.timeDate
+        separateDateLabel.text = msg.separateDate
+    }
+    
+    func configureHideDate(
+        hide: Bool
+    ) {
+        if !hide {
+            separateDateLabel.text = nil
+            separateDateBgView.backgroundColor = .clear
+        }
     }
     
     private func awakeLabel(
