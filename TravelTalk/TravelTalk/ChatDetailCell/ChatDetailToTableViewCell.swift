@@ -15,6 +15,9 @@ class ChatDetailToTableViewCell: UITableViewCell {
     @IBOutlet var dateLabel: UILabel!
     @IBOutlet var msgBgView: UIView!
     
+    @IBOutlet var separateBgView: UIView!
+    @IBOutlet var separateDateLabel: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         
@@ -31,6 +34,11 @@ class ChatDetailToTableViewCell: UITableViewCell {
         
         awakeLabel(label: msgLabel, fontSize: 15, fontColor: .black)
         awakeLabel(label: dateLabel, fontSize: 13, fontColor: .lightGray)
+        awakeLabel(label: separateDateLabel, fontSize: 10, fontColor: .lightGray)
+        separateDateLabel.textAlignment = .center
+        
+        separateBgView.backgroundColor = .systemGray6
+        separateBgView.layer.cornerRadius = 10
     }
     
     
@@ -38,7 +46,8 @@ class ChatDetailToTableViewCell: UITableViewCell {
         super.prepareForReuse()
         
         profileImageview.image = nil
-        [nicknameLabel, msgLabel, dateLabel]
+        [nicknameLabel, msgLabel,
+         dateLabel, separateDateLabel]
             .forEach { $0?.text = "" }
     }
     override func layoutSubviews() {
@@ -52,6 +61,16 @@ class ChatDetailToTableViewCell: UITableViewCell {
         nicknameLabel.text = msg.user.rawValue
         msgLabel.text = msg.message
         dateLabel.text = msg.timeDate
+        separateDateLabel.text = msg.separateDate
+    }
+    
+    func configureHideDate(
+        hide: Bool
+    ) {
+        if !hide {
+            separateDateLabel.text = nil
+            separateBgView.backgroundColor = .clear
+        }
     }
     
     private func awakeLabel(

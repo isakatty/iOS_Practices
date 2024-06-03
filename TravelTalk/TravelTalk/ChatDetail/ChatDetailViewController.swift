@@ -156,7 +156,7 @@ extension ChatDetailViewController
             
             if realtimeChat.startIndex != indexPath.row {
                 let result2 = realtimeChat[indexPath.row].changedDate.dateCompare(fromDate: realtimeChat[indexPath.row - 1].changedDate)
-                print("❓", result2)
+                
                 cell.configureHideDate(hide: result2)
             }
             
@@ -169,6 +169,11 @@ extension ChatDetailViewController
             else { return UITableViewCell() }
             
             cell.configureCell(msg: realtimeChat[indexPath.row])
+            
+            if realtimeChat.startIndex != indexPath.row {
+                let result2 = realtimeChat[indexPath.row].changedDate.dateCompare(fromDate: realtimeChat[indexPath.row - 1].changedDate)
+                cell.configureHideDate(hide: result2)
+            }
             
             return cell
         }

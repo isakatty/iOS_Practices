@@ -19,10 +19,10 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="u1H-RL-Utj">
-                        <rect key="frame" x="304.66666666666669" y="32" width="49.333333333333314" height="92"/>
+                        <rect key="frame" x="300.66666666666669" y="36" width="53.333333333333314" height="88"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OFg-h5-g8E">
-                                <rect key="frame" x="4" y="4" width="41.333333333333336" height="84"/>
+                                <rect key="frame" x="8" y="4" width="41.333333333333336" height="80"/>
                                 <color key="backgroundColor" red="0.96611279250000004" green="0.41644143909999998" blue="0.32974916770000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="30" id="1it-IL-OgC"/>
@@ -39,12 +39,12 @@
                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="35" id="WAm-gN-zWq"/>
                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="35" id="WLI-zF-e5R"/>
                             <constraint firstAttribute="bottom" secondItem="OFg-h5-g8E" secondAttribute="bottom" constant="4" id="XLz-O2-9rX"/>
-                            <constraint firstItem="OFg-h5-g8E" firstAttribute="leading" secondItem="u1H-RL-Utj" secondAttribute="leading" constant="4" id="ZhY-8y-nIr"/>
+                            <constraint firstItem="OFg-h5-g8E" firstAttribute="leading" secondItem="u1H-RL-Utj" secondAttribute="leading" constant="8" id="ZhY-8y-nIr"/>
                             <constraint firstAttribute="trailing" secondItem="OFg-h5-g8E" secondAttribute="trailing" constant="4" id="zs9-Id-qYJ"/>
                         </constraints>
                     </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZL5-xe-fZU">
-                        <rect key="frame" x="218.66666666666666" y="107" width="69.999999999999972" height="17"/>
+                        <rect key="frame" x="214.66666666666666" y="107" width="69.999999999999972" height="17"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="17" id="YNG-bb-IWK"/>
                             <constraint firstAttribute="width" constant="70" id="nFz-Wm-RJ0"/>
@@ -82,7 +82,7 @@
                     <constraint firstAttribute="bottom" secondItem="u1H-RL-Utj" secondAttribute="bottom" constant="8" id="8Uq-kt-mOp"/>
                     <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="QDg-qu-Rzr" secondAttribute="trailing" constant="80" id="KFg-Qg-ZWc"/>
                     <constraint firstAttribute="trailing" secondItem="u1H-RL-Utj" secondAttribute="trailing" constant="8" id="MAQ-Np-yWQ"/>
-                    <constraint firstItem="u1H-RL-Utj" firstAttribute="top" secondItem="QDg-qu-Rzr" secondAttribute="bottom" constant="8" id="Nhg-pD-2Z5"/>
+                    <constraint firstItem="u1H-RL-Utj" firstAttribute="top" secondItem="QDg-qu-Rzr" secondAttribute="bottom" constant="12" id="Nhg-pD-2Z5"/>
                     <constraint firstItem="ZL5-xe-fZU" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="32" id="ROU-nD-f6T"/>
                     <constraint firstItem="QDg-qu-Rzr" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="80" id="bES-f8-csf"/>
                     <constraint firstAttribute="bottom" secondItem="ZL5-xe-fZU" secondAttribute="bottom" constant="8" id="gQu-lk-R52"/>
