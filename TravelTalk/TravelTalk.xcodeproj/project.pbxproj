@@ -26,6 +26,7 @@
 		C9DC5D1B2C0B687100BD64DD /* ChatDetailFromTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C9DC5D192C0B687100BD64DD /* ChatDetailFromTableViewCell.xib */; };
 		C9DC5D1E2C0B687E00BD64DD /* ChatDetailToTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9DC5D1C2C0B687E00BD64DD /* ChatDetailToTableViewCell.swift */; };
 		C9DC5D1F2C0B687E00BD64DD /* ChatDetailToTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C9DC5D1D2C0B687E00BD64DD /* ChatDetailToTableViewCell.xib */; };
+		C9F03A102C0DD3CE00E82D00 /* Date+.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F03A0F2C0DD3CE00E82D00 /* Date+.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +51,7 @@
 		C9DC5D192C0B687100BD64DD /* ChatDetailFromTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChatDetailFromTableViewCell.xib; sourceTree = "<group>"; };
 		C9DC5D1C2C0B687E00BD64DD /* ChatDetailToTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatDetailToTableViewCell.swift; sourceTree = "<group>"; };
 		C9DC5D1D2C0B687E00BD64DD /* ChatDetailToTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChatDetailToTableViewCell.xib; sourceTree = "<group>"; };
+		C9F03A0F2C0DD3CE00E82D00 /* Date+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +106,7 @@
 				C9DC5D002C0B3A5700BD64DD /* Identifier+.swift */,
 				C9DC5D022C0B3A9B00BD64DD /* UIViewController+.swift */,
 				C9DC5D042C0B3AD200BD64DD /* UITableViewCell+.swift */,
+				C9F03A0F2C0DD3CE00E82D00 /* Date+.swift */,
 			);
 			path = extension;
 			sourceTree = "<group>";
@@ -225,6 +228,7 @@
 				C9CD88172C09CAFE00E63995 /* AppDelegate.swift in Sources */,
 				C9DC5D0B2C0B4A1E00BD64DD /* ChattingData.swift in Sources */,
 				C9DC5D1A2C0B687100BD64DD /* ChatDetailFromTableViewCell.swift in Sources */,
+				C9F03A102C0DD3CE00E82D00 /* Date+.swift in Sources */,
 				C9CD88192C09CAFE00E63995 /* SceneDelegate.swift in Sources */,
 				C9DC5D082C0B3F5C00BD64DD /* ChatListTableViewCell.swift in Sources */,
 				C9DC5D032C0B3A9B00BD64DD /* UIViewController+.swift in Sources */,

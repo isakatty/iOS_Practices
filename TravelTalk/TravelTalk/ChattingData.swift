@@ -62,6 +62,33 @@ struct Chat {
         
         return dateToString
     }
+    
+    var changedDate: Date {
+        let nowDateFormat = DateFormatter()
+        nowDateFormat.dateFormat = "yyyy-MM-dd HH:mm"
+        nowDateFormat.locale = Locale(identifier: "ko_KR")
+        let onlyDateFormat = DateFormatter()
+        onlyDateFormat.dateFormat = "yyyy-MM-dd"
+        onlyDateFormat.locale = Locale(identifier: "ko_KR")
+        
+        guard let stringToDate = nowDateFormat.date(from: date) else { return Date() }
+        let dateStr = onlyDateFormat.string(from: stringToDate)
+        
+        guard let strDate = onlyDateFormat.date(from: dateStr) else { return Date() }
+        return strDate
+    }
+    
+    var separateDate: String {
+        let nowDateFormat = DateFormatter()
+        nowDateFormat.dateFormat = "yyyy-MM-dd HH:mm"
+        let changeDateFormat = DateFormatter()
+        changeDateFormat.dateFormat = "yyyy년 MM월 dd일"
+        guard let separate = nowDateFormat.date(from: date) else { return date }
+        let separateStr = changeDateFormat.string(from: separate)
+        
+        return separateStr
+    }
+    
 }
 
 

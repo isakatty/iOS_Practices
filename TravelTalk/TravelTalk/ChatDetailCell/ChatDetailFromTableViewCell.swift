@@ -11,21 +11,30 @@ class ChatDetailFromTableViewCell: UITableViewCell {
 
     @IBOutlet var msgLabel: UILabel!
     @IBOutlet var dateLabel: UILabel!
+    @IBOutlet var msgBgView: UIView!
+    
+    @IBOutlet var separateDateBgView: UIView!
+    @IBOutlet var separateDateLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        msgLabel.layer.cornerRadius = 5
-        msgLabel.layer.borderWidth = 1
-        msgLabel.layer.borderColor = UIColor.systemGray2.cgColor
-        msgLabel.clipsToBounds = true
-        msgLabel.layer.maskedCorners = [.layerMaxXMaxYCorner, .layerMaxXMinYCorner, .layerMinXMaxYCorner, .layerMinXMinYCorner]
         msgLabel.numberOfLines = .zero
+        msgBgView.backgroundColor = .systemBackground
+        msgBgView.layer.cornerRadius = 10
+        msgBgView.layer.borderColor = UIColor.black.cgColor
+        msgBgView.layer.borderWidth = 1.5
         
         dateLabel.textAlignment = .right
         
-        awakeLabel(label: msgLabel, fontSize: 15, fontColor: .black, labelBgColor: .systemGray3)
+        awakeLabel(label: msgLabel, fontSize: 15, fontColor: .black, labelBgColor: nil)
         awakeLabel(label: dateLabel, fontSize: 13, fontColor: .lightGray, labelBgColor: nil)
+        
+        awakeLabel(label: separateDateLabel, fontSize: 10, fontColor: .lightGray, labelBgColor: nil)
+        separateDateLabel.textAlignment = .center
+        
+        separateDateBgView.backgroundColor = .systemGray6
+        separateDateBgView.layer.cornerRadius = 10
     }
 
     override func prepareForReuse() {
@@ -39,6 +48,16 @@ class ChatDetailFromTableViewCell: UITableViewCell {
     ) {
         msgLabel.text = msg.message
         dateLabel.text = msg.timeDate
+        separateDateLabel.text = msg.separateDate
+    }
+    
+    func configureHideDate(
+        hide: Bool
+    ) {
+        if !hide {
+            separateDateLabel.text = nil
+            separateDateBgView.backgroundColor = .clear
+        }
     }
     
     private func awakeLabel(

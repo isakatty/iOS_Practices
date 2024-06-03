@@ -7,6 +7,10 @@
 
 import UIKit
 
+/*
+ MARK: cell에 날짜 구분하는 라벨, 뷰가 있고 데이터 비교를 통해서 clear 처리
+ 컴포넌트를 clear color로 줘서 눈속임 ..
+ */
 class ChatDetailViewController: UIViewController {
     
     @IBOutlet var chatTableView: UITableView!
@@ -141,6 +145,10 @@ extension ChatDetailViewController
         _ tableView: UITableView,
         cellForRowAt indexPath: IndexPath
     ) -> UITableViewCell {
+        // while
+        
+        
+        
         if realtimeChat[indexPath.row].user == .user {
             guard let cell = tableView.dequeueReusableCell(
                 withIdentifier: ChatDetailFromTableViewCell.identifier,
@@ -149,6 +157,12 @@ extension ChatDetailViewController
             else { return UITableViewCell() }
             
             cell.configureCell(msg: realtimeChat[indexPath.row])
+            
+            if realtimeChat.startIndex != indexPath.row {
+                let result2 = realtimeChat[indexPath.row].changedDate.dateCompare(fromDate: realtimeChat[indexPath.row - 1].changedDate)
+                
+                cell.configureHideDate(hide: result2)
+            }
             
             return cell
         } else {
@@ -159,6 +173,11 @@ extension ChatDetailViewController
             else { return UITableViewCell() }
             
             cell.configureCell(msg: realtimeChat[indexPath.row])
+            
+            if realtimeChat.startIndex != indexPath.row {
+                let result2 = realtimeChat[indexPath.row].changedDate.dateCompare(fromDate: realtimeChat[indexPath.row - 1].changedDate)
+                cell.configureHideDate(hide: result2)
+            }
             
             return cell
         }
