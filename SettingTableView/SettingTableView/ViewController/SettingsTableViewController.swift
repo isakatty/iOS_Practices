@@ -20,8 +20,8 @@ class SettingsTableViewController: UITableViewController {
         navigationItem.title = "설정"
         navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
         
-        view.backgroundColor = .black
-        tableView.backgroundColor = .black
+//        view.backgroundColor = .black
+//        tableView.backgroundColor = .black
     }
     
     override func tableView(

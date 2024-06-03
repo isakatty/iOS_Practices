@@ -45,7 +45,6 @@ class SettingTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        print("?")
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
