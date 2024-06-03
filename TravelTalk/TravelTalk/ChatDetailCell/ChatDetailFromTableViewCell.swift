@@ -11,20 +11,21 @@ class ChatDetailFromTableViewCell: UITableViewCell {
 
     @IBOutlet var msgLabel: UILabel!
     @IBOutlet var dateLabel: UILabel!
+    @IBOutlet var msgBgView: UIView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        msgLabel.layer.cornerRadius = 5
-        msgLabel.layer.borderWidth = 1
-        msgLabel.layer.borderColor = UIColor.systemGray2.cgColor
-        msgLabel.clipsToBounds = true
-        msgLabel.layer.maskedCorners = [.layerMaxXMaxYCorner, .layerMaxXMinYCorner, .layerMinXMaxYCorner, .layerMinXMinYCorner]
+        
         msgLabel.numberOfLines = .zero
+        msgBgView.backgroundColor = .systemBackground
+        msgBgView.layer.cornerRadius = 10
+        msgBgView.layer.borderColor = UIColor.black.cgColor
+        msgBgView.layer.borderWidth = 1.5
         
         dateLabel.textAlignment = .right
         
-        awakeLabel(label: msgLabel, fontSize: 15, fontColor: .black, labelBgColor: .systemGray3)
+        awakeLabel(label: msgLabel, fontSize: 15, fontColor: .black, labelBgColor: nil)
         awakeLabel(label: dateLabel, fontSize: 13, fontColor: .lightGray, labelBgColor: nil)
     }
 
