@@ -19,7 +19,7 @@ import Kingfisher
     - 더 멋진 방법 없나 . . ?
  */
 
-enum Region: Int {
+enum Region: Int, CaseIterable {
     case all = 0
     case domestic
     case international
@@ -37,21 +37,27 @@ enum Region: Int {
             return cityList.filter { $0.domestic_travel == false }
         }
     }
+    var toString: String {
+        switch self {
+        case .all:
+            "모두"
+        case .domestic:
+            "국내"
+        case .international:
+            "해외"
+        }
+    }
 }
 
 class PopularCityViewController: UIViewController {
 
+    let viewModel: PopularViewModel = PopularViewModel()
     let cityList = CityInfo().city
-    let segName: [String] = ["모두", "국내", "해외"]
     var cnt = 0
     // 빈배열을 선언해주고, viewDidLoad되면서 값을 넣어줘서 활용하는 것과 애초에 기본 데이터를 넣어놓고 활용하는 것의 차이가 있나 ?
     // 효율성보다는 데이터가 들어가는 시점
     // 효율성 -> 연산이 들어가는 것.
-    var filteredCity = [City]() { // 생성할 때는 이벤트 X
-        didSet {
-            tableView.reloadData()
-        }
-    }
+    var filteredCity = [City]()
     
     @IBOutlet var tableView: UITableView!
     @IBOutlet var segments: UISegmentedControl!
@@ -61,13 +67,19 @@ class PopularCityViewController: UIViewController {
         super.viewDidLoad()
         navigationItem.title = "인기 도시"
         
-        filteredCity = cityList
-        
+        bindData()
         configureTableView()
         configureSegmented()
         configureSearchBar()
         
         hideKeyboard()
+    }
+    func bindData() {
+        viewModel.outputCities.bind { [weak self] _ in
+            guard let self else { return }
+            // 이 cities를 어케 하누 ?
+            self.tableView.reloadData()
+        }
     }
     
     func configureTableView() {
@@ -85,8 +97,8 @@ class PopularCityViewController: UIViewController {
         tableView.rowHeight = 140
     }
     func configureSegmented() {
-        for compo in segName.indices {
-            segments.setTitle(segName[compo], forSegmentAt: compo)
+        for compo in Region.allCases {
+            segments.setTitle(compo.toString, forSegmentAt: compo.rawValue)
         }
     }
     func configureSearchBar() {
@@ -98,12 +110,14 @@ class PopularCityViewController: UIViewController {
     @IBAction func segmentSelected(_ sender: UISegmentedControl) {
         print(sender.selectedSegmentIndex)
         
+        viewModel.inputSegTrigger.value = sender.selectedSegmentIndex
+        
         // ⭐️ 열거형으로 처리해줘도 ?
         
         // MARK: enum의 rawValue를 통해 가져온 값은 optional ?
         // -> segmentIndex랑 enum의 rawValue 값이랑 매칭이 안될 수 있으니까 ?
-        guard let selected = Region(rawValue: sender.selectedSegmentIndex) else { return }
-        filteredCity = selected.filterData(cityList: cityList)
+//        guard let selected = Region(rawValue: sender.selectedSegmentIndex) else { return }
+//        filteredCity = selected.filterData(cityList: cityList)
         
     }
     
@@ -119,11 +133,8 @@ class PopularCityViewController: UIViewController {
  */
 extension PopularCityViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        guard let text = searchBar.text, !text.isEmpty 
-        else { return }
-        
-        filteredCity = cityList.filter({ $0.city_name.contains(text) || $0.city_english_name.contains(text) || $0.city_explain.contains(text)
-        })
+        guard let text = searchBar.text else { return }
+        viewModel.inputSearchBarTrigger.value = text
     }
 }
 
@@ -133,7 +144,7 @@ extension PopularCityViewController
         _ tableView: UITableView,
         numberOfRowsInSection section: Int
     ) -> Int {
-        return filteredCity.count
+        return viewModel.outputCities.value.count
     }
     func tableView(
         _ tableView: UITableView,
@@ -143,7 +154,7 @@ extension PopularCityViewController
             withIdentifier: PopularCityTableViewCell.identifier,
             for: indexPath
         ) as? PopularCityTableViewCell else { return UITableViewCell() }
-        let cityInfo = filteredCity[indexPath.row]
+        let cityInfo = viewModel.outputCities.value[indexPath.row]
         
         cell.configureCell(city: cityInfo)
         return cell
