@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C9003C0D2C4A3B3600857FB0 /* SettingListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9003C0C2C4A3B3600857FB0 /* SettingListViewController.swift */; };
 		C94BBCE42BFF6E0100E68B02 /* TalkSetting.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C94BBCE32BFF6E0100E68B02 /* TalkSetting.storyboard */; };
 		C94BBCE62BFF6E2C00E68B02 /* SettingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C94BBCE52BFF6E2C00E68B02 /* SettingTableViewController.swift */; };
 		C94BBCE82BFF87D200E68B02 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C94BBCE72BFF87D200E68B02 /* SettingsTableViewController.swift */; };
@@ -23,6 +24,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C9003C0C2C4A3B3600857FB0 /* SettingListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingListViewController.swift; sourceTree = "<group>"; };
 		C94BBCE32BFF6E0100E68B02 /* TalkSetting.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TalkSetting.storyboard; sourceTree = "<group>"; };
 		C94BBCE52BFF6E2C00E68B02 /* SettingTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTableViewController.swift; sourceTree = "<group>"; };
 		C94BBCE72BFF87D200E68B02 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
@@ -100,6 +102,7 @@
 				C94BBCE72BFF87D200E68B02 /* SettingsTableViewController.swift */,
 				C99031332C03868E002542BD /* ShoppingTableViewController.swift */,
 				C9541F6A2BFF22D100D00218 /* ViewController.swift */,
+				C9003C0C2C4A3B3600857FB0 /* SettingListViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -186,6 +189,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C94BBCE62BFF6E2C00E68B02 /* SettingTableViewController.swift in Sources */,
+				C9003C0D2C4A3B3600857FB0 /* SettingListViewController.swift in Sources */,
 				C990313B2C0391EA002542BD /* Shopping.swift in Sources */,
 				C99031342C03868E002542BD /* ShoppingTableViewController.swift in Sources */,
 				C94BBCE82BFF87D200E68B02 /* SettingsTableViewController.swift in Sources */,
