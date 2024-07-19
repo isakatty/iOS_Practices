@@ -23,7 +23,8 @@ enum User: String {
 }
 
 //트래블톡 화면에서 사용할 데이터 구조체
-struct ChatRoom {
+struct ChatRoom: Identifiable, Hashable {
+    let id = UUID().uuidString
     let chatroomId: Int //채팅방 고유 ID
     let chatroomImage: [String] //채팅방에 속한 유저 이미지
     let chatroomName: String //채팅방 이름
@@ -31,8 +32,8 @@ struct ChatRoom {
 }
 
 //채팅 화면에서 사용할 데이터 구조체
-struct Chat {
-    let user: User
+struct Chat: Hashable {
+    let user: User // enum 자체는 Hashable하니까
     let date: String
     let message: String
     

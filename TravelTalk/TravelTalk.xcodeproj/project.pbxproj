@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C9003C082C4A26EB00857FB0 /* TravelTalkCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9003C072C4A26EB00857FB0 /* TravelTalkCollectionViewController.swift */; };
+		C9003C0B2C4A27F300857FB0 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = C9003C0A2C4A27F300857FB0 /* SnapKit */; };
 		C9CD88172C09CAFE00E63995 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9CD88162C09CAFE00E63995 /* AppDelegate.swift */; };
 		C9CD88192C09CAFE00E63995 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9CD88182C09CAFE00E63995 /* SceneDelegate.swift */; };
 		C9CD881E2C09CAFE00E63995 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = C9CD881D2C09CAFE00E63995 /* Base */; };
@@ -30,6 +32,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C9003C072C4A26EB00857FB0 /* TravelTalkCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravelTalkCollectionViewController.swift; sourceTree = "<group>"; };
 		C9CD88132C09CAFE00E63995 /* TravelTalk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TravelTalk.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9CD88162C09CAFE00E63995 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C9CD88182C09CAFE00E63995 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -59,6 +62,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C9003C0B2C4A27F300857FB0 /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -116,6 +120,7 @@
 			children = (
 				C9DC5CFD2C0B3A0400BD64DD /* ChatList.storyboard */,
 				C9DC5CFB2C0B39BB00BD64DD /* TravelTalkViewController.swift */,
+				C9003C072C4A26EB00857FB0 /* TravelTalkCollectionViewController.swift */,
 			);
 			path = ChatList;
 			sourceTree = "<group>";
@@ -165,6 +170,9 @@
 			dependencies = (
 			);
 			name = TravelTalk;
+			packageProductDependencies = (
+				C9003C0A2C4A27F300857FB0 /* SnapKit */,
+			);
 			productName = TravelTalk;
 			productReference = C9CD88132C09CAFE00E63995 /* TravelTalk.app */;
 			productType = "com.apple.product-type.application";
@@ -193,6 +201,9 @@
 				Base,
 			);
 			mainGroup = C9CD880A2C09CAFE00E63995;
+			packageReferences = (
+				C9003C092C4A27F300857FB0 /* XCRemoteSwiftPackageReference "SnapKit" */,
+			);
 			productRefGroup = C9CD88142C09CAFE00E63995 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -235,6 +246,7 @@
 				C9DC5D052C0B3AD200BD64DD /* UITableViewCell+.swift in Sources */,
 				C9DC5D012C0B3A5700BD64DD /* Identifier+.swift in Sources */,
 				C9DC5D1E2C0B687E00BD64DD /* ChatDetailToTableViewCell.swift in Sources */,
+				C9003C082C4A26EB00857FB0 /* TravelTalkCollectionViewController.swift in Sources */,
 				C9DC5CFC2C0B39BB00BD64DD /* TravelTalkViewController.swift in Sources */,
 				C9DC5D162C0B63F900BD64DD /* ChatDetailViewController.swift in Sources */,
 			);
@@ -469,6 +481,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		C9003C092C4A27F300857FB0 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.7.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		C9003C0A2C4A27F300857FB0 /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C9003C092C4A27F300857FB0 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = C9CD880B2C09CAFE00E63995 /* Project object */;
 }
